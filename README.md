@@ -1,24 +1,22 @@
-# README
+# AwakenCMS (Custom Content Management System)
+* Project Description
+This project is a website for Awaken Skin Studio, a spa that is dedicated to providing clients with a relaxing environment, safe and effective treatments, and friendly service from experienced technicians and specialists. The website will allow clients to book appointments, consent to digital consent forms, and access information about the spa's services and specials. The website will also allow the spa's staff to easily update and manage the website's content.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* Getting Started Guide
+    1. Clone the repository to your local machine using git clone https://github.com/[username]/AwakenCMS.git
+    2. Navigate to the project directory with cd AwakenCMS
+    3. Install all necessary dependencies with bundle install
+    4. Set up the database with rails db:create db:migrate
+    5. Start the development server with rails s
+    6. Visit http://localhost:3000 in your web browser to access the website
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Prerequisites
+* Screen shots and Animated GIF’s
+* Database schema’s
+* Compatibility Chart
+* Authors
+* License
+* Acknowledgments
+* Development
+* Accessibility
