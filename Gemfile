@@ -70,3 +70,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# // Author: Bobola Obi
+# // Date: February 28, 2023
+# // Description: This Installes the Faker and ERD gems to the project.
+
+gem 'faker'
+gem 'rails-erd', group: :development

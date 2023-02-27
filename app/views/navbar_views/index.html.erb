@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Navbar views</h1>
+
+<div id="navbar_views">
+  <% @navbar_views.each do |navbar_view| %>
+    <%= render navbar_view %>
+    <p>
+      <%= link_to "Show this navbar view", navbar_view %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New navbar view", new_navbar_view_path %>

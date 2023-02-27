@@ -1,0 +1,2 @@
+module NavbarViewsHelper
+end
