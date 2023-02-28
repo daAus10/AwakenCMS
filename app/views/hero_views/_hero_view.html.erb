@@ -1,0 +1,27 @@
+<div id="<%= dom_id hero_view %>">
+  <p>
+    <strong>Image:</strong>
+    <%= link_to hero_view.image.filename, hero_view.image if hero_view.image.attached? %>
+  </p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= hero_view.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= hero_view.description %>
+  </p>
+
+  <p>
+    <strong>Button:</strong>
+    <%= hero_view.button %>
+  </p>
+
+  <p>
+    <strong>Isvisible:</strong>
+    <%= hero_view.isVisible %>
+  </p>
+
+</div>

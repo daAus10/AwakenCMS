@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hero_views
 
   # // Author: Bobola Obi
   # // Date: February 28, 2023
