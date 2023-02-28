@@ -1,0 +1,32 @@
+<%= form_with(model: gallery_view) do |form| %>
+  <% if gallery_view.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(gallery_view.errors.count, "error") %> prohibited this gallery_view from being saved:</h2>
+
+      <ul>
+        <% gallery_view.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :external_link, style: "display: block" %>
+    <%= form.text_field :external_link %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

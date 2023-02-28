@@ -1,0 +1,2 @@
+class GalleryView < ApplicationRecord
+end
