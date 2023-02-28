@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Hot section views</h1>
+
+<div id="hot_section_views">
+  <% @hot_section_views.each do |hot_section_view| %>
+    <%= render hot_section_view %>
+    <p>
+      <%= link_to "Show this hot section view", hot_section_view %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New hot section view", new_hot_section_view_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :service_categories
+  resources :hot_section_views
   resources :about_views
   resources :hero_views
 
