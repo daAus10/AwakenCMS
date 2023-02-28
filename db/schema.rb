@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_002533) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_002615) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -23,6 +23,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_002533) do
     t.string "name"
     t.string "email"
     t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "footer_views", force: :cascade do |t|
+    t.string "brand_name"
+    t.string "group_title"
+    t.text "monday"
+    t.text "tuesday"
+    t.text "wednesday"
+    t.text "thursday"
+    t.text "friday"
+    t.text "saturday"
+    t.text "sunday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,67 @@
+<div id="<%= dom_id footer_view %>">
+  <p>
+    <strong>Brand name:</strong>
+    <%= footer_view.brand_name %>
+  </p>
+
+  <p>
+    <strong>Brand image:</strong>
+    <%= link_to footer_view.brand_image.filename, footer_view.brand_image if footer_view.brand_image.attached? %>
+  </p>
+
+  <p>
+    <strong>Group title:</strong>
+    <%= footer_view.group_title %>
+  </p>
+
+  <p>
+    <strong>Social image 1:</strong>
+    <%= link_to footer_view.social_image_1.filename, footer_view.social_image_1 if footer_view.social_image_1.attached? %>
+  </p>
+
+  <p>
+    <strong>Social image 2:</strong>
+    <%= link_to footer_view.social_image_2.filename, footer_view.social_image_2 if footer_view.social_image_2.attached? %>
+  </p>
+
+  <p>
+    <strong>Social image 3:</strong>
+    <%= link_to footer_view.social_image_3.filename, footer_view.social_image_3 if footer_view.social_image_3.attached? %>
+  </p>
+
+  <p>
+    <strong>Monday:</strong>
+    <%= footer_view.monday %>
+  </p>
+
+  <p>
+    <strong>Tuesday:</strong>
+    <%= footer_view.tuesday %>
+  </p>
+
+  <p>
+    <strong>Wednesday:</strong>
+    <%= footer_view.wednesday %>
+  </p>
+
+  <p>
+    <strong>Thursday:</strong>
+    <%= footer_view.thursday %>
+  </p>
+
+  <p>
+    <strong>Friday:</strong>
+    <%= footer_view.friday %>
+  </p>
+
+  <p>
+    <strong>Saturday:</strong>
+    <%= footer_view.saturday %>
+  </p>
+
+  <p>
+    <strong>Sunday:</strong>
+    <%= footer_view.sunday %>
+  </p>
+
+</div>
