@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_002615) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_003135) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -54,6 +54,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_002615) do
     t.text "description"
     t.string "button"
     t.boolean "isVisible"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hot_new_views", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.boolean "isVisible"
+    t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

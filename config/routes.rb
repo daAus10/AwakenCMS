@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hot_new_views
   resources :footer_views
   resources :map_views
   resources :contact_views
