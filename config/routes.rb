@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contact_views
   resources :gallery_views
   resources :service_categories
   resources :hot_section_views
