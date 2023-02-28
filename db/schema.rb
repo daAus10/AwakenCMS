@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_003135) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_004733) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -19,10 +19,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_003135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "appointments", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.date "date"
+    t.string "email"
+    t.text "special_needs"
+    t.integer "employee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_appointments_on_employee_id"
+  end
+
   create_table "contact_views", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,15 +85,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_003135) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "hot_section_views", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.boolean "isVisible"
-    t.string "link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "map_views", force: :cascade do |t|
     t.string "url"
     t.datetime "created_at", null: false
@@ -94,6 +103,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_003135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "service_categories", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -102,4 +117,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_003135) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "appointments", "employees"
 end

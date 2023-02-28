@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :appointments
+  resources :roles
+  resources :employees
   resources :hot_new_views
   resources :footer_views
   resources :map_views
