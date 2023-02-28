@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :about_views
   resources :hero_views
 
   # // Author: Bobola Obi
