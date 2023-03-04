@@ -1,7 +1,11 @@
 <div id="<%= dom_id hot_new_view %>">
   <p>
     <strong>Image:</strong>
-    <%= link_to hot_new_view.image.filename, hot_new_view.image if hot_new_view.image.attached? %>
+    <% if hot_new_view.image.attached? %>
+      <%= image_tag hot_new_view.image %>
+    <% else %>
+      No image available.
+    <% end %>
   </p>
 
   <p>

@@ -1,13 +1,21 @@
 <div id="<%= dom_id footer_view %>">
+
+
+  <p>
+    <strong>Brand image:</strong>
+    <% if footer_view.brand_image.attached? %>
+      <%= image_tag footer_view.brand_image %>
+    <% else %>
+      No brand image available.
+    <% end %>
+  </p>
+
   <p>
     <strong>Brand name:</strong>
     <%= footer_view.brand_name %>
   </p>
 
-  <p>
-    <strong>Brand image:</strong>
-    <%= link_to footer_view.brand_image.filename, footer_view.brand_image if footer_view.brand_image.attached? %>
-  </p>
+
 
   <p>
     <strong>Group title:</strong>

@@ -1,7 +1,11 @@
 <div id="<%= dom_id navbar_view %>">
   <p>
     <strong>Image:</strong>
-    <%= link_to navbar_view.image.filename, navbar_view.image if navbar_view.image.attached? %>
+    <% if navbar_view.image.attached? %>
+      <%= image_tag navbar_view.image %>
+    <% else %>
+      No image available.
+    <% end %>
   </p>
 
   <p>
