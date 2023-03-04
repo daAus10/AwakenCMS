@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :contact_items
+  resources :contact_types
   resources :appointments
   resources :roles
   resources :employees

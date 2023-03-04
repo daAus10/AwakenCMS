@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_004733) do
+
+# // Author: Bobola Obi
+# // Date: March 3rd, 2023
+# // Description: Generated Database Schemas for scaffold
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_003444) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -31,10 +36,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_004733) do
     t.index ["employee_id"], name: "index_appointments_on_employee_id"
   end
 
-  create_table "contact_views", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.text "message"
+  create_table "contact_items", force: :cascade do |t|
+    t.string "image"
+    t.string "attachment"
+    t.string "contactType"
+    t.string "string"
+    t.string "contact"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contact_types", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,6 +91,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_004733) do
   end
 
   create_table "hot_new_views", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.boolean "isVisible"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hot_section_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.boolean "isVisible"
