@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :service_items
   # // Author: Bobola Obi
   # // Date: March 03, 2023
   # // Time: 8:11pm
