@@ -1,2 +1,0 @@
-class ContactView < ApplicationRecord
-end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # // Author: Bobola Obi
+  # // Date: March 03, 2023
+  # // Time: 8:11pm
+  # // Description: This adds a new controller called `Canvas` to the AwakenCMS project, with an `index` action that loads data from the `CanvasItem` model.
   resources :gallery_image_posts
   resources :contact_items
   resources :contact_types
@@ -8,10 +12,8 @@ Rails.application.routes.draw do
   resources :hot_new_views
   resources :footer_views
   resources :map_views
-  resources :contact_views
   resources :gallery_views
   resources :service_categories
-  resources :hot_section_views
   resources :about_views
   resources :hero_views
 
