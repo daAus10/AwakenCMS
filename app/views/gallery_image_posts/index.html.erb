@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Gallery image posts</h1>
+
+<div id="gallery_image_posts">
+  <% @gallery_image_posts.each do |gallery_image_post| %>
+    <%= render gallery_image_post %>
+    <p>
+      <%= link_to "Show this gallery image post", gallery_image_post %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New gallery image post", new_gallery_image_post_path %>

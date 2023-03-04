@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :gallery_image_posts
   resources :contact_items
   resources :contact_types
   resources :appointments

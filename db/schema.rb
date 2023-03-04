@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-# // Author: Bobola Obi
-# // Date: March 3rd, 2023
-# // Description: Generated Database Schemas for scaffold
-
-ActiveRecord::Schema[7.0].define(version: 2023_03_04_003444) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_005451) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -53,6 +48,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_003444) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "contact_views", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -69,6 +72,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_003444) do
     t.text "friday"
     t.text "saturday"
     t.text "sunday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gallery_image_posts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
