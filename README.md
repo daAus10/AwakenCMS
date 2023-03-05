@@ -14,6 +14,8 @@ This project is a website for Awaken Skin Studio, a spa that is dedicated to pro
 * Prerequisites
 * Screen shots and Animated GIF’s
 * Database schema’s
+![new DB_pages-to-jpg-0001](https://user-images.githubusercontent.com/91559950/222935015-c5e37187-aa50-4be3-9f96-278b95e50c65.jpg)
+
 * Compatibility Chart
 * Authors
 * License
