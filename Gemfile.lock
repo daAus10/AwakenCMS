@@ -222,6 +222,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activestorage
   bootsnap
   capybara
   debug

@@ -1,0 +1,13 @@
+<div id="<%= dom_id gallery_image_post %>">
+  <p>
+    <strong>Image:</strong>
+
+    <% if gallery_image_post.image.attached? %>
+      <%= image_tag gallery_image_post.image %>
+    <% else %>
+      No image available.
+    <% end %>
+
+  </p>
+
+</div>

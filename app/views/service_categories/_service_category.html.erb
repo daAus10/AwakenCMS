@@ -1,0 +1,22 @@
+<div id="<%= dom_id service_category %>">
+  <p>
+    <strong>Image:</strong>
+    <%= link_to service_category.image.filename, service_category.image if service_category.image.attached? %>
+  </p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= service_category.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= service_category.description %>
+  </p>
+
+  <p>
+    <strong>Link:</strong>
+    <%= service_category.link %>
+  </p>
+
+</div>

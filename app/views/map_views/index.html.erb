@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Map views</h1>
+
+<div id="map_views">
+  <% @map_views.each do |map_view| %>
+    <%= render map_view %>
+    <p>
+      <%= link_to "Show this map view", map_view %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New map view", new_map_view_path %>

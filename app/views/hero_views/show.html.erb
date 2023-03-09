@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @hero_view %>
+
+<div>
+  <%= link_to "Edit this hero view", edit_hero_view_path(@hero_view) %> |
+  <%= link_to "Back to hero views", hero_views_path %>
+
+  <%= button_to "Destroy this hero view", @hero_view, method: :delete %>
+</div>

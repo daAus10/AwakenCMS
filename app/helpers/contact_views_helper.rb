@@ -1,0 +1,2 @@
+module ContactViewsHelper
+end

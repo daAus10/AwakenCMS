@@ -1,0 +1,31 @@
+<div id="<%= dom_id hot_new_view %>">
+  <p>
+    <strong>Image:</strong>
+    <% if hot_new_view.image.attached? %>
+      <%= image_tag hot_new_view.image %>
+    <% else %>
+      No image available.
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= hot_new_view.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= hot_new_view.description %>
+  </p>
+
+  <p>
+    <strong>Isvisible:</strong>
+    <%= hot_new_view.isVisible %>
+  </p>
+
+  <p>
+    <strong>Link:</strong>
+    <%= hot_new_view.link %>
+  </p>
+
+</div>
