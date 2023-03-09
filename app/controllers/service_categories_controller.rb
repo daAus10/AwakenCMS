@@ -8,6 +8,8 @@ class ServiceCategoriesController < ApplicationController
 
   # GET /service_categories/1 or /service_categories/1.json
   def show
+    # @category = ServiceCategory.find(params[:id])
+    # @items = @category.service_items
   end
 
   # GET /service_categories/new

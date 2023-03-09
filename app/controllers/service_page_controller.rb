@@ -6,8 +6,8 @@ class ServicePageController < ApplicationController
     @service_data_desc = ServiceViewCard.pluck(:description)
 
 
-    # @service_cat = ServiceCategory.all
-    # @service_items = ServiceItem.all
+    @service_cat = ServiceCategory.all
+    @service_items = ServiceItem.all
 
   end
 end

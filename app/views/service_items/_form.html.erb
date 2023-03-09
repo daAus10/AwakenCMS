@@ -31,6 +31,7 @@
     <%= form.text_area :description %>
   </div>
 
+  <%#= form.collection_select(:service_category, ServiceCategory.all, :id, :title, prompt: "Select a category") %>
   <div>
     <%= form.submit %>
   </div>

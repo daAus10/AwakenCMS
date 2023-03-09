@@ -12,3 +12,28 @@
   <p>Description</p>
 <% end %>
 
+
+<% @service_cat.each do |categories| %>
+  <div>
+    <%= categories.title  %>
+    <hr>
+    <% @service_items.each do |items| %>
+    <%#= items.service_name , items.time, items.price, items.description %>
+      <%= items.service_name + " " + items.time.to_s + " " + items.price.to_s + " " + items.description %>
+      <br>
+      <br>
+  <% end %>
+  </div>
+<% end %>
+
+
+
+<%# @service_cat.each do |categories| %>
+<!--  <div>-->
+    <%#= categories.title  %>
+<!--    <hr>-->
+    <%# categories.service_items.each do |items| %>
+      <%#= items.service_name + " " + items.time.to_s + " " + items.price.to_s + " " + items.description %>
+    <%# end %>
+<!--  </div>-->
+<%# end %>

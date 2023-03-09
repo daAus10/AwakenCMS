@@ -4,8 +4,10 @@ class CreateServiceCategories < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :description
       t.string :link
-
       t.timestamps
+
     end
+
+
   end
 end
