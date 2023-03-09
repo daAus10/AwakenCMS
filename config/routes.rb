@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+
+
   # Defines the root path route ("/")
   # root "articles#index"
   # // Author: Bobola Obi
   # // Date: March 03, 2023
   get '/gallery', to: 'gallery_page#galleryIndex'
-
+ 
   resources :service_items
   # // Author: Bobola Obi
   # // Date: March 03, 2023
