@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # // Author: Bobola Obi
   # // Date: March 03, 2023
   get '/gallery', to: 'gallery_page#galleryIndex'
- 
+  get '/services', to: 'service_page#serviceIndex'
   resources :service_items
   # // Author: Bobola Obi
   # // Date: March 03, 2023
