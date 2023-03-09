@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'gallery_conroller/galleryIndex'
+
   resources :service_items
   # // Author: Bobola Obi
   # // Date: March 03, 2023
@@ -29,4 +29,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # // Author: Bobola Obi
+  # // Date: March 03, 2023
+  get 'gallery_controller/galleryIndex'
+
 end
