@@ -19,7 +19,11 @@
 
 <% @galleryImages.each do |image| %>
   <div>
- <%= image_tag image.image %>
-    <!--    <p><%#= image.caption %></p>-->
+    <% if image.image.attached? %>
+      <%= image_tag image.image %>
+    <% else %>
+      <%= "  " %>
+    <% end %>
   </div>
 <% end %>
+
