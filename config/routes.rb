@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'gallery_conroller/galleryIndex'
   resources :service_items
   # // Author: Bobola Obi
   # // Date: March 03, 2023

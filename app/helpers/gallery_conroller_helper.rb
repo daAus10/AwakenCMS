@@ -1,0 +1,2 @@
+module GalleryConrollerHelper
+end
