@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # Defines the root path route ("/")
+  # root "articles#index"
+  # // Author: Bobola Obi
+  # // Date: March 03, 2023
+  get '/gallery', to: 'gallery_page#galleryIndex'
+
   resources :service_items
   # // Author: Bobola Obi
   # // Date: March 03, 2023
@@ -26,6 +32,6 @@ Rails.application.routes.draw do
   resources :navbar_views
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+
+
 end
