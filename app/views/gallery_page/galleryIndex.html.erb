@@ -1,0 +1,25 @@
+<% if @gallery_data_title.any? %>
+
+      <h2><%= @gallery_data_title.first %></h2>
+
+  <% else %>
+    <p>Title</p>
+  <% end %>
+
+
+  <% if @gallery_data_desc.any? %>
+      <p><%= @gallery_data_desc.first %></p>
+  <% else %>
+    <p>Description</p>
+  <% end %>
+
+<!--#Gallery View Post Images-->
+<!--# (This helps pulls all the images and displays it on the page)-->
+
+
+<% @galleryImages.each do |image| %>
+  <div>
+ <%= image_tag image.image %>
+    <!--    <p><%#= image.caption %></p>-->
+  </div>
+<% end %>

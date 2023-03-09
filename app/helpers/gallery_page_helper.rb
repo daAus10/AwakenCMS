@@ -1,0 +1,2 @@
+module GalleryPageHelper
+end
