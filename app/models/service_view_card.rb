@@ -1,0 +1,2 @@
+class ServiceViewCard < ApplicationRecord
+end

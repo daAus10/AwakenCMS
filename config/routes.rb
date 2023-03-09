@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :service_view_cards
 
 
   # Defines the root path route ("/")

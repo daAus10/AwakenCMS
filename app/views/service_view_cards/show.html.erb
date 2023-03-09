@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @service_view_card %>
+
+<div>
+  <%= link_to "Edit this service view card", edit_service_view_card_path(@service_view_card) %> |
+  <%= link_to "Back to service view cards", service_view_cards_path %>
+
+  <%= button_to "Destroy this service view card", @service_view_card, method: :delete %>
+</div>

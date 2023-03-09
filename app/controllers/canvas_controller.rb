@@ -4,7 +4,7 @@ class CanvasController < ApplicationController
     @hero_view = HeroView.where(isVisible: true)
     @about_view = AboutView.all
     @hot_section_view = HotNewView .all
-    @service_category = ServiceCategory.all
+    @service_view = ServiceViewCard.all
     @gallery_view = GalleryView.all
     @contact_view = ContactType.all
     @map_view = MapView.all

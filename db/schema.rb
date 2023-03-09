@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_04_024114) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_072918) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -180,6 +180,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_024114) do
     t.string "service_name"
     t.integer "time"
     t.integer "price"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "service_view_cards", force: :cascade do |t|
+    t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

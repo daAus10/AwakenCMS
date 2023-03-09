@@ -1,0 +1,27 @@
+<%= form_with(model: service_view_card) do |form| %>
+  <% if service_view_card.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(service_view_card.errors.count, "error") %> prohibited this service_view_card from being saved:</h2>
+
+      <ul>
+        <% service_view_card.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

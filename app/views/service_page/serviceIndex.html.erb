@@ -1,2 +1,14 @@
-<h1>ServicePage#serviceIndex</h1>
-<p>Find me in app/views/service_page/serviceIndex.html.erb</p>
+<% if @service_data_title.any? %>
+
+  <h2><%= @service_data_title.first %></h2>
+
+<% else %>
+  <h2>Title</h2>
+<% end %>
+
+<% if @service_data_desc.any? %>
+  <p><%= @service_data_desc.first %></p>
+<% else %>
+  <p>Description</p>
+<% end %>
+

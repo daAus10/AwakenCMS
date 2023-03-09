@@ -65,6 +65,6 @@ class ServiceCategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_category_params
-      params.require(:service_category).permit(:image, :title, :description, :link)
+      params.require(:service_category).permit(:image, :title, :description)
     end
 end

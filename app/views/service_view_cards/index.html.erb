@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Service view cards</h1>
+
+<div id="service_view_cards">
+  <% @service_view_cards.each do |service_view_card| %>
+    <%= render service_view_card %>
+    <p>
+      <%= link_to "Show this service view card", service_view_card %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New service view card", new_service_view_card_path %>
