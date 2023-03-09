@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Contact types</h1>
+
+<div id="contact_types">
+  <% @contact_types.each do |contact_type| %>
+    <%= render contact_type %>
+    <p>
+      <%= link_to "Show this contact type", contact_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New contact type", new_contact_type_path %>

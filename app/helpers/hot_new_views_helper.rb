@@ -1,0 +1,2 @@
+module HotNewViewsHelper
+end

@@ -1,0 +1,2 @@
+module AboutViewsHelper
+end

@@ -77,3 +77,4 @@ end
 
 gem 'faker'
 gem 'rails-erd', group: :development
+gem "activestorage"

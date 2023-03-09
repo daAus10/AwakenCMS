@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @hot_new_view %>
+
+<div>
+  <%= link_to "Edit this hot new view", edit_hot_new_view_path(@hot_new_view) %> |
+  <%= link_to "Back to hot new views", hot_new_views_path %>
+
+  <%= button_to "Destroy this hot new view", @hot_new_view, method: :delete %>
+</div>

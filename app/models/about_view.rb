@@ -1,0 +1,2 @@
+class AboutView < ApplicationRecord
+end
