@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :review_views
   resources :service_view_cards
 
 

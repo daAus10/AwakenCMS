@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_072918) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_10_033920) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -158,6 +158,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_072918) do
     t.string "link_name4"
     t.string "services_link"
     t.string "gallery_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "review_views", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
