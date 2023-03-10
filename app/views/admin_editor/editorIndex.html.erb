@@ -1,0 +1,10 @@
+<% if current_user %>
+  <h1> Hello <%= current_user.email %>! </h1>
+  <p> You are successfully authenticated with your Devise account.
+    You can now interact with the application
+    <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete %>
+  </p>
+<% else %>
+  <p>You are not SIGNED IN</p>
+<% end %>
+

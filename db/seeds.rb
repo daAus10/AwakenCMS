@@ -55,3 +55,5 @@ ServiceItem.create(service_name: "Haircut", time: 30, price: 25, description: "L
 
 # Seed data for ServiceViewCard
 ServiceViewCard.create(title: "Our Services", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc gravida mauris ac justo finibus, vitae pharetra enim hendrerit.")
+
+User.create(email: "admin@gmail.com", password: "admin12345", password_confirmation: "admin12345")

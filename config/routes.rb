@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/editor', to: 'admin_editor#editorIndex'
   devise_for :users
   resources :service_view_cards
 
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   resources :service_categories
   resources :about_views
   resources :hero_views
+
 
   # // Author: Bobola Obi
   # // Date: February 28, 2023
