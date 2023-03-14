@@ -1,17 +1,13 @@
 <div id="<%= dom_id map_view %>">
-  <p>
-    <strong>Url:</strong>
-    <%= map_view.url %>
-  </p>
+  <iframe src="<%=map_view.url%>"
+          width="1100"
+          height="450"
+          style="border:0;"
+          allowfullscreen="true"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
 
 </div>
 
 
-<!--<iframe src="<%#=map_view.url%>"-->
-<!--        width="1100"-->
-<!--        height="450"-->
-<!--        style="border:0;"-->
-<!--        allowfullscreen="true"-->
-<!--        loading="lazy"-->
-<!--        referrerpolicy="no-referrer-when-downgrade">-->
-<!--</iframe>-->
