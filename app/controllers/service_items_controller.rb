@@ -1,5 +1,11 @@
 class ServiceItemsController < ApplicationController
   before_action :set_service_item, only: %i[ show edit update destroy ]
+  before_action :authorize_user,
+    def authorize_user
+      unless current_user
+        redirect_to root_path, alert: "You must be an editor to access this page."
+      end
+    end
 
   # GET /service_items or /service_items.json
   def index

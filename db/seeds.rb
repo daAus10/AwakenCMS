@@ -45,7 +45,7 @@ NavbarView.create(brand_name: "My Brand", link_name1: "Home", link_name2: "Servi
 
 # Seed data for Role
 Role.create(name: "Admin")
-
+MapView.create(url: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5906.062518431873!2d-83.002648!3d42.256505!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883b29ce6a6636ef%3A0xa365d454b2dcbc18!2sAwaken%20Skin%20%26%20Hair%20Studio!5e0!3m2!1sen!2sus!4v1678813752947!5m2!1sen!2sus")
 # Seed data for ServiceCategory
 ServiceCategory.create(title: "Hair Services", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc gravida mauris ac justo finibus, vitae pharetra enim hendrerit.", link: "hair-services")
 
