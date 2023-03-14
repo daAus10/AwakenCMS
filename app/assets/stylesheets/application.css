@@ -63,3 +63,15 @@ table {
     border-spacing: 0;
 }
 
+/*Navigation bar style on all editor views*/
+ #flex {
+     display: flex;
+     flex-direction: row;
+
+
+     margin: 0;
+ }
+
+#right {
+    margin: 0;
+}

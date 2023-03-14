@@ -1,0 +1,82 @@
+<!-- _navbar.html.erb -->
+
+<div id="editor-controller">
+  <div class="navbar">
+    <% if current_user %>
+      <%= link_to "Appointments", appointments_path %>
+      <hr>
+      <a href="http://127.0.0.1:3000/editor" class="nested-link">Editor</a>
+      <div class="sub-menu">
+        <%= link_to "NavBar", navbar_views_path %>
+        <%= link_to "Banner", hero_views_path %>
+        <%= link_to "About", about_views_path %>
+        <%= link_to "HotNew", hot_new_views_path %>
+        <%= link_to "ServiceItems", service_categories_path %>
+        <%= link_to "ServiceItems", service_items_path %>
+        <%= link_to "Gallery", gallery_views_path %>
+        <%= link_to "Contact", contact_types_path %>
+        <%= link_to "Location", map_views_path %>
+        <%= link_to "footer", footer_views_path %>
+      </div>
+      <%= link_to "Pages",  root_path ,class:"nested-link"%>
+      <a href="#" class="nested-link">Staff</a>
+      <div class="sub-menu">
+        <a href="#">Employee</a>
+        <a href="#">Roles</a>
+      </div>
+
+      <div>
+        <%= link_to "Sign Out", destroy_user_session_path, class: "sign-out", 'data-turbo-method': :delete %>
+      </div>
+
+    <% else %>
+      <p>You are not SIGNED IN</p>
+    <% end %>
+
+  </div>
+
+</div>
+
+
+<style>
+    /* Your existing CSS code goes here */
+
+    #editor-controller{
+        display: flex;
+        flex-direction: row;
+       margin-right: 30px;
+
+    }
+    .sign-out {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+        display: block;
+
+    }
+
+    .nested-link{
+        border-bottom: 1px solid white;
+    }
+
+    /* Set styles for the navigation bar */
+    .navbar {
+        background-color: rgb(0, 0, 0);
+        overflow: hidden;
+        height: 100vh;
+    }
+
+    /* Style the navigation links */
+    .navbar a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+        display: block;
+    }
+
+</style>

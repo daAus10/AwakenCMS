@@ -9,6 +9,7 @@ class AboutViewsController < ApplicationController
 
   # GET /about_views or /about_views.json
   def index
+
     @about_views = AboutView.all
   end
 

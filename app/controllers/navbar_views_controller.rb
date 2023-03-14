@@ -12,7 +12,9 @@ class NavbarViewsController < ApplicationController
 
   # GET /navbar_views or /navbar_views.json
   def index
+
     @navbar_views = NavbarView.all
+
   end
 
   # GET /navbar_views/1 or /navbar_views/1.json

@@ -1,9 +1,15 @@
-<h1>New about view</h1>
+<div id="flex">
+  <%= render 'layouts/navbar' %>
 
-<%= render "form", about_view: @about_view %>
+  <div id="right" >
+    <h1>New about view</h1>
 
-<br>
+    <%= render "form", about_view: @about_view %>
+    <br>
+    <div>
+      <%= link_to "Back to about views", about_views_path %>
+    </div>
 
-<div>
-  <%= link_to "Back to about views", about_views_path %>
+  </div>
 </div>
+
