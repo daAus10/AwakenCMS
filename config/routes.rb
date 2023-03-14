@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/editor', to: 'admin_editor#editorIndex'
+  get '/editor', to: 'appointments#index'
+  # get '/editor', to: 'admin_editor#editorIndex'
   devise_for :users
   resources :service_view_cards
 
