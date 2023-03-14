@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
   before_action :authorize_user,
     def authorize_user
       unless current_user
