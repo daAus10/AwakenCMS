@@ -16,7 +16,6 @@ class AppointmentsTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @appointment.date
     fill_in "Email", with: @appointment.email
-    fill_in "Employee", with: @appointment.employee_id
     fill_in "Name", with: @appointment.name
     fill_in "Phone", with: @appointment.phone
     fill_in "Special needs", with: @appointment.special_needs
@@ -32,7 +31,6 @@ class AppointmentsTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @appointment.date
     fill_in "Email", with: @appointment.email
-    fill_in "Employee", with: @appointment.employee_id
     fill_in "Name", with: @appointment.name
     fill_in "Phone", with: @appointment.phone
     fill_in "Special needs", with: @appointment.special_needs
