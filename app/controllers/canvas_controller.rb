@@ -1,4 +1,9 @@
 class CanvasController < ApplicationController
+
+  def home
+    # add any code here that you need for your home page
+    render :index
+  end
   def index
     @navbar_view = NavbarView.all
     @hero_view = HeroView.where(isVisible: true)

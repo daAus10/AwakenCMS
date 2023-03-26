@@ -1,5 +1,12 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :authorize_user,
+    def authorize_user
+      unless current_user
+        redirect_to root_path, alert: "You must be an editor to access this page."
+      end
+    end
 
   # GET /appointments or /appointments.json
   def index
@@ -65,6 +72,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.require(:appointment).permit(:name, :phone, :date, :email, :special_needs, :employee_id)
+      params.require(:appointment).permit(:name, :phone, :date, :email, :special_needs)
     end
 end

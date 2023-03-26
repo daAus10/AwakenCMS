@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :review_views
+  get '/editor', to: 'appointments#index'
+  # get '/editor', to: 'admin_editor#editorIndex'
+  devise_for :users
   resources :service_view_cards
 
 
@@ -27,7 +29,8 @@ Rails.application.routes.draw do
   resources :service_categories
   resources :about_views
   resources :hero_views
-  resources :review_views
+
+
   # // Author: Bobola Obi
   # // Date: February 28, 2023
   # // Description: This adds a new controller called `Canvas` to the AwakenCMS project, with an `index` action that loads data from the `CanvasItem` model.

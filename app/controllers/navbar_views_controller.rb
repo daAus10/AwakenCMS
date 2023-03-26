@@ -1,9 +1,20 @@
 class NavbarViewsController < ApplicationController
   before_action :set_navbar_view, only: %i[ show edit update destroy ]
 
+  before_action :authorize_user,
+
+
+    def authorize_user
+      unless current_user
+        redirect_to root_path, alert: "You must be an editor to access this page."
+      end
+    end
+
   # GET /navbar_views or /navbar_views.json
   def index
+
     @navbar_views = NavbarView.all
+
   end
 
   # GET /navbar_views/1 or /navbar_views/1.json

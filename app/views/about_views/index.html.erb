@@ -1,14 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<div id="flex">
+  <p style="color: green"><%= notice %></p>
+  <%= render 'layouts/navbar' %>
 
-<h1>About views</h1>
+      <div id="right" >
+        <h1>About views</h1>
+        <div id="about_views">
 
-<div id="about_views">
-  <% @about_views.each do |about_view| %>
-    <%= render about_view %>
-    <p>
-      <%= link_to "Show this about view", about_view %>
-    </p>
-  <% end %>
+          <% @about_views.each do |about_view| %>
+            <%= render about_view %>
+            <p>
+              <%= link_to "Show this about view", about_view %>
+            </p>
+          <% end %>
+        </div>
+        <%= link_to "New about view", new_about_view_path %>
+      </div>
 </div>
 
-<%= link_to "New about view", new_about_view_path %>
+
+
+
