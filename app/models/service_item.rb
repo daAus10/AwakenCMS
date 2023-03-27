@@ -1,4 +1,4 @@
 class ServiceItem < ApplicationRecord
-  # belongs_to :service_category
-
+  has_many :orderables
+  has_many :karts, through: :orderables
 end

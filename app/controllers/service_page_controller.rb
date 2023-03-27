@@ -1,5 +1,7 @@
 include ServiceViewCardsHelper
 class ServicePageController < ApplicationController
+
+
   # before_action :authorize_user,
   #   def authorize_user
   #     unless current_user
@@ -12,8 +14,13 @@ class ServicePageController < ApplicationController
     @service_data_desc = ServiceViewCard.pluck(:description)
 
 
-    @service_cat = ServiceCategory.all
-    @service_items = ServiceItem.all
+    @product_cat = ProductCategory.all
+    @products = Product.all
 
   end
+
+
+#  ServicePage = ProductsPage
+  # KART is a separate page
+  # Orderables Help keep Data
 end

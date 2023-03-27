@@ -13,6 +13,7 @@
 
   <body>
   <% render 'layouts/alerts' %>
+  <% render  partial: 'kart/kart' if @render_kart %>
     <%= yield %>
   </body>
 </html>

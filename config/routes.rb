@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :product_categories
+  resources :products
+
+  get 'cart', to:'kart#show'
+  # post 'kart/add'
+  post 'kart/add', to: 'kart#add'
+  delete 'kart/remove/:id', to: 'kart#remove', as: :kart_remove
+
   get '/editor', to: 'appointments#index'
   # get '/editor', to: 'admin_editor#editorIndex'
   devise_for :users

@@ -12,20 +12,52 @@
   <p>Description</p>
 <% end %>
 
-
-<% @service_cat.each do |categories| %>
-  <div>
-    <%= categories.title  %>
-    <hr>
-    <% @service_items.each do |items| %>
-    <%#= items.service_name , items.time, items.price, items.description %>
-      <%= items.service_name + " " + items.time.to_s + " " + items.price.to_s + " " + items.description %>
-      <br>
-      <br>
+<%= form_tag kart_add_path, method: :post, remote: true do %>
+  <% @product_cat.each do |categories| %>
+    <div>
+      <%= categories.title  %>
+      <hr>
+      <% @products.each do |items| %>
+        <label>
+          <%= check_box_tag "service_item_ids[]", items.id %>
+          <%= items.name + " "  + items.price.to_s  + " "  + items.description %>
+        </label>
+        <br>
+        <br>
+      <% end %>
+    </div>
   <% end %>
-  </div>
+  <%= submit_tag "Add Selected Items to Cart" %>
 <% end %>
 
+
+<%# @product_cat.each do |category| %>
+<!--  <div>-->
+    <%#= category.title %>
+<!--    <hr>-->
+    <%# category.products.each do |product| %>
+      <%#= form_with(url: kart_add_path) do |f| %>
+        <%#= f.hidden_field :id, value: product.id %>
+        <%#= f.check_box :quantity, {class: 'product-checkbox'}, "1", "0" %>
+        <%#= f.label :quantity, "#{product.name} (#{product.price})" %>
+      <%# end %>
+    <%# end %>
+<!--  </div>-->
+<%# end %>
+
+<%# @service_cat.each do |categories| %>
+<!--  <div>-->
+    <%#= categories.title  %>
+<!--    <hr>-->
+    <%# @service_items.each do |items| %>
+    <%#= items.service_name , items.time, items.price, items.description %>
+      <%#= items.service_name + " " + items.time.to_s + " " + items.price.to_s + " " + items.description %>
+      <%#= items.name + " "  + items.price.to_s  + " "  + items.description %>
+<!--      <br>-->
+<!--      <br>-->
+  <%# end %>
+<!--  </div>-->
+<%# end %>
 
 
 <%# @service_cat.each do |categories| %>
