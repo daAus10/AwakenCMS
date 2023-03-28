@@ -1,22 +1,19 @@
 class CanvasController < ApplicationController
-  before_action :initialize_cart
-  before_action :set_render_kart
 
+  before_action :cart_item_count
+  helper_method :cart_item_count
+  before_action :set_render_kart_count
 
-  def set_render_kart
-    @render_kart = true
+  def set_render_kart_count
+    @render_kart_count = true
+  end
+
+  def cart_item_count
     @kart = Kart.find_or_create_by(id: session[:kart_id])
-    session[:kart_id] ||= @kart.id
+    @cart_item_count = @kart.orderables.sum(:quantity)
   end
 
-  def initialize_cart
-    @kart ||= Kart.find_by(id: session[:kart_id])
-  end
 
-  if @kart.nil?
-    @kart = Kart.create
-    session[:kart_id] = @kart.id
-  end
   def home
     # add any code here that you need for your home page
     render :index

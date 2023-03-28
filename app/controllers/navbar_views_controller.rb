@@ -1,8 +1,6 @@
 class NavbarViewsController < ApplicationController
   before_action :set_navbar_view, only: %i[ show edit update destroy ]
-
-  before_action :authorize_user,
-
+  before_action :authorize_user
 
     def authorize_user
       unless current_user

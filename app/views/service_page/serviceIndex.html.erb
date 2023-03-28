@@ -1,3 +1,5 @@
+<%#= javascript_include_tag 'cart' %>
+
 <% if @service_data_title.any? %>
 
   <h2><%= @service_data_title.first %></h2>
@@ -19,7 +21,8 @@
       <hr>
       <% @products.each do |items| %>
         <label>
-          <%= check_box_tag "service_item_ids[]", items.id %>
+          <%= check_box_tag "service_item_ids[]", items.id, false , onchange:"updateCartCount(this)" %>
+          <%#= check_box_tag "service_item_ids[]", items.id %>
           <%= items.name + " "  + items.price.to_s  + " "  + items.description %>
         </label>
         <br>
@@ -29,6 +32,44 @@
   <% end %>
   <%= submit_tag "Add Selected Items to Cart" %>
 <% end %>
+
+<script>
+    document.addEventListener("turbo:load", function() {
+        var checkboxes = document.querySelectorAll('input[type=checkbox]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var cartCount = document.getElementById('cart-count');
+                var count = parseInt(cartCount.innerHTML);
+                if (this.checked) {
+                    count += 1;
+                } else {
+                    if (count > 0) {
+                        count -= 1;
+                    } else {
+                        count = 0;
+                    }
+                }
+                cartCount.innerHTML = count.toString() + " item(s) in cart";
+            });
+        });
+    });
+</script>
+<script>
+
+
+    document.addEventListener("turbo:load", function() {
+        var checkboxes = document.querySelectorAll('input[type=checkbox]');
+        var cartCount = document.getElementById('cart-count');
+        var count = <%= @kart.quantity %>;
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                cartCount.innerHTML = <%= @kart.quantity %>;
+            });
+        });
+    });
+
+</script>
 
 
 <%# @product_cat.each do |category| %>

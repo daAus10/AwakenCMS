@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= turbo_include_tags %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -13,7 +14,9 @@
 
   <body>
   <% render 'layouts/alerts' %>
-  <% render  partial: 'kart/kart' if @render_kart %>
-    <%= yield %>
+  <%# render  partial: 'kart/kart' if @render_kart %>
+  <%= render 'layouts/top_nav_bar_with_cart' if @render_kart_count %>
+
+  <%= yield %>
   </body>
 </html>

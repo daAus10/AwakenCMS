@@ -1,13 +1,20 @@
 include ServiceViewCardsHelper
 class ServicePageController < ApplicationController
 
+  before_action :cart_item_count
+  helper_method :cart_item_count
+  before_action :set_render_kart_count
 
-  # before_action :authorize_user,
-  #   def authorize_user
-  #     unless current_user
-  #       redirect_to root_path, alert: "You must be an editor to access this page."
-  #     end
-  #   end
+  def set_render_kart_count
+    @render_kart_count = true
+  end
+
+  def cart_item_count
+    @kart = Kart.find_or_create_by(id: session[:kart_id])
+    @cart_item_count = @kart.orderables.sum(:quantity)
+  end
+
+
   def serviceIndex
     # ServiceViewCardHeader data
     @service_data_title = ServiceViewCard.pluck(:title)
@@ -20,7 +27,10 @@ class ServicePageController < ApplicationController
   end
 
 
-#  ServicePage = ProductsPage
-  # KART is a separate page
-  # Orderables Help keep Data
 end
+
+
+
+
+
+
