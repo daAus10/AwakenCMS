@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_25_050034) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_31_165913) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -169,20 +169,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_050034) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "kart_id", null: false
+    t.integer "kart_id"
     t.integer "product_id", null: false
+    t.integer "appointment_id"
+    t.index ["appointment_id"], name: "index_orderables_on_appointment_id"
     t.index ["kart_id"], name: "index_orderables_on_kart_id"
     t.index ["product_id"], name: "index_orderables_on_product_id"
-  end
-
-  create_table "orederables", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "kart_id", null: false
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["kart_id"], name: "index_orederables_on_kart_id"
-    t.index ["product_id"], name: "index_orederables_on_product_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -248,6 +240,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_050034) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "orderables", "karts"
   add_foreign_key "orderables", "products"
-  add_foreign_key "orederables", "karts"
-  add_foreign_key "orederables", "products"
 end

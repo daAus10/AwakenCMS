@@ -1,4 +1,5 @@
 <%= form_with(model: appointment) do |form| %>
+  <%= form.hidden_field :kart_id, value: @kart.id %>
   <% if appointment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
@@ -35,6 +36,31 @@
     <%= form.label :special_needs, style: "display: block" %>
     <%= form.text_area :special_needs %>
   </div>
+
+
+  <h3>Order Details:</h3>
+  <table>
+    <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @appointment.orderables.each do |orderable| %>
+      <% product = orderable.product %>
+      <tr>
+        <td><h2></h2><%= product.name %></td>
+<!--        <td><%#= orderable.quantity %></td>-->
+        <td><%= product.price %></td>
+<!--        <td><%#= orderable.total %></td>-->
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
 
   <div>
     <%= form.submit %>

@@ -8,13 +8,16 @@ class AppointmentsController < ApplicationController
       end
     end
 
+
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.all
+    # @appointments = Appointment.all
+    @appointments = Appointment.includes(:orderables).all
   end
 
   # GET /appointments/1 or /appointments/1.json
   def show
+    @orderables = @appointment.orderables
   end
 
   # GET /appointments/new
@@ -26,12 +29,17 @@ class AppointmentsController < ApplicationController
   def edit
   end
 
+
   # POST /appointments or /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
 
     respond_to do |format|
       if @appointment.save
+        @kart.orderables.where(kart_id: @kart.id).update_all(appointment_id: @appointment.id, kart_id: nil)
+        @appointment.orderables.create(kart: @kart)
+        # @kart.orderables.update_all(appointment_id: @appointment.id, kart_id: nil)
+        puts @appointment.orderables.inspect
         format.html { redirect_to appointment_url(@appointment), notice: "Appointment was successfully created." }
         format.json { render :show, status: :created, location: @appointment }
       else
@@ -72,6 +80,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.require(:appointment).permit(:name, :phone, :date, :email, :special_needs)
+      params.require(:appointment).permit(:name, :phone, :date, :email, :special_needs, orderables_attributes: [:product_id, :quantity])
     end
 end

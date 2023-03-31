@@ -1,6 +1,9 @@
+# app/models/orderable.rb
 class Orderable < ApplicationRecord
+  belongs_to :appointment, optional: true
   belongs_to :product
   belongs_to :kart
+
 
   def total
     product.price * quantity
