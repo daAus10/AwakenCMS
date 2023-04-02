@@ -1,6 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @appointment %>
+<p>
+  <strong>Time:</strong>
+  <%= @appointment.time %>
+</p>
 <h2>Orderables</h2>
 <h3>SHOW</h3>
 <% if @orderables.present? %>

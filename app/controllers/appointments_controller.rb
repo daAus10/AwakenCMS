@@ -23,12 +23,17 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   def new
     @appointment = Appointment.new
+    # @appointments = Appointment.pluck(:time1, :time2, :time3).flatten
+    @appointments = Appointment.where("created_at >= ?", Time.zone.now.beginning_of_day).pluck(:time).flatten
+    # @appointments = Appointment.where("created_at > ?", 24.hours.ago).pluck(:time1, :time2, :time3).flatten
+    @appointments ||= []
   end
 
   # GET /appointments/1/edit
   def edit
+    @appointments = Appointment.where("created_at >= ?", Time.zone.now.beginning_of_day).pluck(:time).flatten
+    @appointments ||= []
   end
-
 
   # POST /appointments or /appointments.json
   def create
@@ -80,6 +85,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.require(:appointment).permit(:name, :phone, :date, :email, :special_needs, orderables_attributes: [:product_id, :quantity])
+      params.require(:appointment).permit(:name, :phone, :date, :email, :special_needs, :time, orderables_attributes: [:product_id, :quantity])
     end
 end
