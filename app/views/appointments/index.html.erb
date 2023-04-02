@@ -13,6 +13,9 @@
       <% @appointments.each do |appointment| %>
         <%= render appointment %>
 
+        <p>
+          Time: <%= appointment.time %>
+        </p>
         <% appointment.orderables.each do |orderable| %>
           <li><%= "#{orderable.product.name} - #{orderable.quantity}" %></li>
         <% end %>
