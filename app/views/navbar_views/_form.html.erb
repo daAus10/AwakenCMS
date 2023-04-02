@@ -1,4 +1,5 @@
 <%= form_with(model: navbar_view) do |form| %>
+
   <% if navbar_view.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(navbar_view.errors.count, "error") %> prohibited this navbar_view from being saved:</h2>

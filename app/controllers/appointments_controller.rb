@@ -8,22 +8,31 @@ class AppointmentsController < ApplicationController
       end
     end
 
+
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.all
+    # @appointments = Appointment.all
+    @appointments = Appointment.includes(:orderables).all
   end
 
   # GET /appointments/1 or /appointments/1.json
   def show
+    @orderables = @appointment.orderables
   end
 
   # GET /appointments/new
   def new
     @appointment = Appointment.new
+    # @appointments = Appointment.pluck(:time1, :time2, :time3).flatten
+    @appointments = Appointment.where("created_at >= ?", Time.zone.now.beginning_of_day).pluck(:time).flatten
+    # @appointments = Appointment.where("created_at > ?", 24.hours.ago).pluck(:time1, :time2, :time3).flatten
+    @appointments ||= []
   end
 
   # GET /appointments/1/edit
   def edit
+    @appointments = Appointment.where("created_at >= ?", Time.zone.now.beginning_of_day).pluck(:time).flatten
+    @appointments ||= []
   end
 
   # POST /appointments or /appointments.json
@@ -32,6 +41,10 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
+        @kart.orderables.where(kart_id: @kart.id).update_all(appointment_id: @appointment.id, kart_id: nil)
+        @appointment.orderables.create(kart: @kart)
+        # @kart.orderables.update_all(appointment_id: @appointment.id, kart_id: nil)
+        puts @appointment.orderables.inspect
         format.html { redirect_to appointment_url(@appointment), notice: "Appointment was successfully created." }
         format.json { render :show, status: :created, location: @appointment }
       else
@@ -72,6 +85,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.require(:appointment).permit(:name, :phone, :date, :email, :special_needs)
+      params.require(:appointment).permit(:name, :phone, :date, :email, :special_needs, :time, orderables_attributes: [:product_id, :quantity])
     end
 end

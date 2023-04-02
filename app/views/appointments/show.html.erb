@@ -1,9 +1,37 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @appointment %>
+<p>
+  <strong>Time:</strong>
+  <%= @appointment.time %>
+</p>
+<h2>Orderables</h2>
+<h3>SHOW</h3>
+<% if @orderables.present? %>
+  <table>
+    <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @orderables.each do |orderable| %>
+      <tr>
+        <td><%= orderable.product.name %></td>
+        <td><%= orderable.quantity %></td>
+        <td><%= orderable.product.price %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No orderables associated with this appointment.</p>
+<% end %>
 
 <div>
-  <%= link_to "Edit this appointment", edit_appointment_path(@appointment) %> |
+<!--  <%#= link_to "Edit this appointment", edit_appointment_path(@appointment) %> |-->
   <%= link_to "Back to appointments", appointments_path %>
 
   <%= button_to "Destroy this appointment", @appointment, method: :delete %>

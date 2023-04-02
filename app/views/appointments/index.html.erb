@@ -5,19 +5,28 @@
 <div id="flex">
   <%= render 'layouts/navbar' %>
 
+
   <div id="right" >
     <h1>Appointments</h1>
 
     <div id="appointments">
       <% @appointments.each do |appointment| %>
         <%= render appointment %>
+
+        <p>
+          Time: <%= appointment.time %>
+        </p>
+        <% appointment.orderables.each do |orderable| %>
+          <li><%= "#{orderable.product.name} - #{orderable.quantity}" %></li>
+        <% end %>
+
         <p>
           <%= link_to "Show this appointment", appointment %>
         </p>
       <% end %>
     </div>
 
-    <%= link_to "New appointment", new_appointment_path %>
+    <%#= link_to "New appointment", new_appointment_path %>
 
 
   </div>

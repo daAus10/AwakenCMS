@@ -11,7 +11,11 @@ class KartController < ApplicationController
 
   def show
     @render_cart = true
+    @appointment = Appointment.new
+    @appointments = Appointment.where("created_at >= ?", Time.zone.now.beginning_of_day).pluck(:time).flatten
+    @appointments ||= []
   end
+
   def index
     @kart = Kart.find_or_create_by(id: session[:kart_id])
     session[:kart_id] ||= @kart.id
@@ -21,7 +25,6 @@ class KartController < ApplicationController
     @kart = Kart.find_or_create_by(id: session[:kart_id])
     session[:kart_id] ||= @kart.id
   end
-
 
   def add
     item_ids = params[:service_item_ids]
@@ -55,17 +58,6 @@ class KartController < ApplicationController
     end
     end
 
-
-  # def remove
-  #   orderable = @kart.orderables.find(params[:id])
-  #   orderable.destroy
-  #   respond_to do |format|
-  #     format.turbo_stream do
-  #       render turbo_stream: turbo_stream.remove("cart_item_#{orderable.id}")
-  #     end
-  #     format.html { redirect_to kart_path }
-  #   end
-  # end
   def remove
     orderable = @kart.orderables.find(params[:id])
     orderable.destroy
@@ -85,6 +77,16 @@ class KartController < ApplicationController
 end
 
 
+# def remove
+#   orderable = @kart.orderables.find(params[:id])
+#   orderable.destroy
+#   respond_to do |format|
+#     format.turbo_stream do
+#       render turbo_stream: turbo_stream.remove("cart_item_#{orderable.id}")
+#     end
+#     format.html { redirect_to kart_path }
+#   end
+# end
 
 
 
