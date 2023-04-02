@@ -20,12 +20,15 @@
         <%= link_to "footer", footer_views_path %>
       </div>
       <%= link_to "Pages",  root_path ,class:"nested-link"%>
-      <a href="#" class="nested-link">Staff</a>
-      <div class="sub-menu">
-        <a href="#">Employee</a>
-        <a href="#">Roles</a>
-      </div>
 
+      <div class="sub-menu">
+      <%= link_to "Staff", employees_url %>
+        <%=  link_to "Roles", roles_path %>
+
+    
+      </div>
+      <div>
+      </div>
       <div>
         <%= link_to "Sign Out", destroy_user_session_path, class: "sign-out", 'data-turbo-method': :delete %>
       </div>

@@ -1,3 +1,3 @@
 class Employee < ApplicationRecord
-  # has_many :appointments
+   has_many :roles
 end
