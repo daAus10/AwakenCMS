@@ -8,3 +8,24 @@
 
   <%= button_to "Destroy this employee", @employee, method: :delete %>
 </div>
+
+<!-- Add this code to the existing show.html.erb file -->
+
+<h3>Assign Roles</h3>
+
+<%= form_with(url: assign_roles_employee_path(@employee), method: :post, local: true) do |form| %>
+
+    <div>
+    <% @roles.each do |role| %>
+      <div>
+        <%= check_box_tag "role_ids[]", role.id, @employee.roles.include?(role) %>
+        <%= label_tag "role_ids_#{role.id}", role.name %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Update Roles" %>
+  </div>
+<% end %>
+

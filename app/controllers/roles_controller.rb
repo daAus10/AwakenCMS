@@ -10,10 +10,15 @@ class RolesController < ApplicationController
   # GET /roles or /roles.json
   def index
     @roles = Role.all
+    @employees = Employee.includes(:roles).all
   end
 
   # GET /roles/1 or /roles/1.json
   def show
+
+      @role = Role.includes(:employees).find(params[:id])
+
+
   end
 
   # GET /roles/new

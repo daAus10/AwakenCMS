@@ -1,14 +1,33 @@
 <p style="color: green"><%= notice %></p>
 
+
 <h1>Roles</h1>
 
-<div id="roles">
+<table>
+  <thead>
+  <tr>
+    <th>Role</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @roles.each do |role| %>
-    <%= render role %>
-    <p>
-      <%= link_to "Show this role", role %>
-    </p>
+    <tr>
+      <td><%= role.name %></td>
+      <td>
+        <% role.employees.each do |employee| %>
+          <%= employee.name %>
+          <% unless employee == role.employees.last %>, <% end %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "Show", role %> |
+        <%= link_to "Edit", edit_role_path(role) %> |
+        <%= link_to "Delete", role, method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
   <% end %>
-</div>
+  </tbody>
+</table>
 
-<%= link_to "New role", new_role_path %>
+<%= link_to "New Role", new_role_path %>

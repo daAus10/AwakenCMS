@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  resources :employee_roles
 
+  resources :employees do
+    post 'assign_roles', on: :member
+  end
 
   get 'cart', to:'kart#show'
   post 'kart/add', to: 'kart#add'

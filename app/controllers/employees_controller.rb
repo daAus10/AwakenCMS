@@ -8,13 +8,21 @@ class EmployeesController < ApplicationController
       end
     end
 
+  def assign_roles
+    @employee = Employee.find(params[:id])
+    @employee.role_ids = params[:role_ids] || []
+    @employee.save
+    redirect_to employee_path(@employee), notice: 'Roles have been updated.'
+  end
   # GET /employees or /employees.json
   def index
-    @employees = Employee.all
+    @employees = Employee.includes(:roles).all
   end
 
   # GET /employees/1 or /employees/1.json
   def show
+    @employee = Employee.find(params[:id])
+    @roles = Role.all
   end
 
   # GET /employees/new

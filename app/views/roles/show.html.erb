@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @role %>
+<h1><%= @role.name %></h1>
 
-<div>
-  <%= link_to "Edit this role", edit_role_path(@role) %> |
-  <%= link_to "Back to roles", roles_path %>
+<p>
+  <strong>Employees:</strong>
+  <% if @role.employees.any? %>
+    <% @role.employees.each do |employee| %>
+      <%= employee.name %>
+      <% unless employee == @role.employees.last %>, <% end %>
+    <% end %>
+  <% else %>
+    No employees assigned
+  <% end %>
+</p>
 
-  <%= button_to "Destroy this role", @role, method: :delete %>
-</div>
+<%= link_to "Edit", edit_role_path(@role) %> |
+<%= link_to "Back", roles_path %>
+<%= button_to "Destroy this role", @role, method: :delete %>

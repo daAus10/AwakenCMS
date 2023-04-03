@@ -5,10 +5,46 @@
 <div id="employees">
   <% @employees.each do |employee| %>
     <%= render employee %>
+
     <p>
       <%= link_to "Show this employee", employee %>
     </p>
   <% end %>
 </div>
+
+<%= link_to "New employee", new_employee_path %>
+
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Employees</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Roles</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @employees.each do |employee| %>
+    <tr>
+      <td><%= employee.name %></td>
+      <td>
+        <% employee.roles.each do |role| %>
+          <%= role.name %>
+          <% unless role == employee.roles.last %>, <% end %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "Show", employee %> |
+        <%= link_to "Edit", edit_employee_path(employee) %> |
+        <%= link_to "Add Roles", employee %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New employee", new_employee_path %>
