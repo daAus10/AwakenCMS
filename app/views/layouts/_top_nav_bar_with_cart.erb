@@ -1,0 +1,11 @@
+<!--Copy code-->
+<%#= link_to "New navbar view", new_navbar_view_path %>
+<div id="top-nav-bar">
+  <!-- Add other navigation elements here -->
+
+  <div id="navbar_views">
+    <% @navbar_views.each do |navbar_view| %>
+      <%= render navbar_view %>
+    <% end %>
+  </div>
+</div>

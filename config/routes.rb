@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+
+
+  get 'cart', to:'kart#show'
+  post 'kart/add', to: 'kart#add'
+  delete 'kart/remove/:id', to: 'kart#remove', as: :kart_remove
+
   get '/editor', to: 'appointments#index'
-  # get '/editor', to: 'admin_editor#editorIndex'
   devise_for :users
   resources :service_view_cards
 
@@ -11,7 +16,7 @@ Rails.application.routes.draw do
   # // Date: March 03, 2023
   get '/gallery', to: 'gallery_page#galleryIndex'
   get '/services', to: 'service_page#serviceIndex'
-  resources :service_items
+
   # // Author: Bobola Obi
   # // Date: March 03, 2023
   # // Time: 8:11pm
@@ -29,7 +34,9 @@ Rails.application.routes.draw do
   resources :service_categories
   resources :about_views
   resources :hero_views
-
+  resources :product_categories
+  resources :products
+  resources :service_items
 
   # // Author: Bobola Obi
   # // Date: February 28, 2023
