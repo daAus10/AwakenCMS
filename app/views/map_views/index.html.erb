@@ -8,7 +8,48 @@
     <p>
       <%= link_to "Show this map view", map_view %>
     </p>
-  <% end %>
+<% end %>
 </div>
 
 <%= link_to "New map view", new_map_view_path %>
+
+<html>
+<head>
+  <title>My App</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8l92VBqowyMs1DTWpxBmF81r-9N_uGIE"></script>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+</head>
+<body>
+<%= yield %>
+</body>
+</html>
+
+
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initMap);
+</script>
+<div id="map"></div>
+
+<body>
+
+<iframe
+    width="600"
+    height="450"
+    style="border:0"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC8l92VBqowyMs1DTWpxBmF81r-9N_uGIE
+    &q=Awaken+Spa,Windsor+ON">
+</iframe>
+</body>

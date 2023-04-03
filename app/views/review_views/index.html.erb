@@ -1,0 +1,71 @@
+
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Review views</h1>
+
+<div id="review_views">
+  <% @review_views.each do |review_view| %>
+    <%= render review_view %>
+    <p>
+      <%= link_to "Show this review view", review_view %>
+    </p>
+
+  <% end %>
+</div><script src="https://static.elfsight.com/platform/platform.js"
+              data-use-service-core defer></script> <div
+    class="elfsight-app-aeec6ab0-a663-48a4-8389-5a6d456143a8"></div>
+<html>
+<% API_KEY = 'AIzaSyC8l92VBqowyMs1DTWpxBmF81r-9N_uGIE'
+
+# Replace YOUR_LOCATION_ID with the actual location ID of the business for which you want to fetch reviews
+LOCATION_ID = 'ChIJQUAzjqguO4gRmV__t9F0Hnw'
+
+# URL of the API endpoint for fetching business reviews
+url = URI("https://mybusiness.googleapis.com/v4/accounts/#{LOCATION_ID}/locations/#{LOCATION_ID}/reviews")
+
+# Set headers to include the API key
+headers = {
+'Authorization' => "Bearer #{API_KEY}",
+'Content-Type' => 'application/json'
+}
+
+# Make an HTTP GET request to the API endpoint
+response = Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
+request = Net::HTTP::Get.new url
+headers.each { |key, value| request[key] = value }
+http.request request
+end
+
+# Parse the JSON response and extract the review data
+data = JSON.parse(response.body)
+reviews = data['reviews']
+
+# Algorithm to parse the JSON file and extract all the necessary details
+reviews_data = []
+reviews.each do |review|
+review_data = {
+reviewer_name: review['reviewer']['displayName'],
+comment: review['comment'],
+rating: review['starRating']
+}
+reviews_data << review_data
+end
+
+# Use a templating engine or a library to generate an HTML file that displays the review data
+# Here's a simple example using string concatenation
+html = '<html><body>'
+reviews_data.each do |review|
+html += "<h2>#{review[:reviewer_name]}</h2>"
+html += "<p>#{review[:comment]}</p>"
+html += "<p>Rating: #{review[:rating]}</p>"
+end
+html += '</body></html>'
+
+# Write the generated HTML file to disk
+File.write('reviews.html', html)
+%>
+</html>
+
+
+<%= link_to "New review view", new_review_view_path %>
