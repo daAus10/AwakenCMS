@@ -25,7 +25,7 @@
     <% times.each do |time| %>
       <% disabled = @appointments.include?(time) %>
       <label class="custom-radio <%= 'disabled' if disabled %>" for="time-<%= time %>">
-        <%= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
+        <%= form.radio_button :time_string, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
         <%= disabled ? 'N/A' : time %>
       </label>
       <%#= form.radio_button :time1, time, id: "time1-#{time}", onchange: "disableSelectedTime(this)", disabled: @appointments.include?(time)  %> <%#= time %>
@@ -34,7 +34,7 @@
     <% time.each do |time| %>
       <% disabled = @appointments.include?(time) %>
       <label class="custom-radio <%= 'disable' if disabled %>" for="time-<%= time %>">
-        <%= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
+        <%= form.radio_button :time_string, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
         <%= disabled ? 'N/A' : time %>
       </label>
     <% end %>
@@ -42,7 +42,7 @@
     <% tim.each do |time| %>
       <% disabled = @appointments.include?(time) %>
       <label class="custom-radio <%= 'disable' if disabled %>" for="time-<%= time %>">
-        <%= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
+        <%= form.radio_button :time_string, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
         <%= disabled ? 'N/A' : time %>
       </label>
     <% end %>
@@ -144,7 +144,7 @@
 
     function toggleSubmitButton() {
         let termsCheckbox = document.getElementById("terms_accepted");
-        let time1Radios = document.getElementsByName("appointment[time]");
+        let time1Radios = document.getElementsByName("appointment[time_string]");
         let timeSelected = Array.from(time1Radios).some(radio => radio.checked);
         let submitButton = document.querySelector("input[type='submit']");
         submitButton.disabled = !(termsCheckbox.checked && timeSelected);
@@ -157,7 +157,7 @@
     });
 
     function disableSelectedTime(clickedRadioButton) {
-        let radioButtons = document.querySelectorAll("input[name='push_time[time]']");
+        let radioButtons = document.querySelectorAll("input[name='appointment[time_string]']");
         radioButtons.forEach(function (radioButton) {
             if (radioButton !== clickedRadioButton) {
                 radioButton.checked = false;
@@ -173,5 +173,6 @@
             }
         });
     }
+
 
 </script>

@@ -8,7 +8,6 @@ class AppointmentsController < ApplicationController
       end
     end
 
-
   # PATCH /appointments/:id/assign_employee
   def assign_employee
     @appointment = Appointment.find(params[:id])
@@ -23,11 +22,16 @@ class AppointmentsController < ApplicationController
   end
 
   # GET /appointments or /appointments.json
+  # app/controllers/appointments_controller.rb
+
   def index
-    # @appointments = Appointment.all
     @appointments = Appointment.includes(:orderables).all
     @employees = Employee.all
+    @today_appointments = @appointments.select { |a| a.date.present? && a.date == Date.today }
+    @upcoming_appointments = @appointments.select { |a| a.date.present? && a.date > Date.today }
+    @past_appointments = @appointments.select { |a| a.date.present? && a.date < Date.today }
   end
+
 
   # GET /appointments/1 or /appointments/1.json
   def show
