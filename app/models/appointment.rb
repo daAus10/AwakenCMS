@@ -2,6 +2,6 @@
 class Appointment < ApplicationRecord
   has_many :orderables
   accepts_nested_attributes_for :orderables
-
+  belongs_to :employee, optional: true
 end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_03_153526) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_03_180127) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -56,6 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_153526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "time"
+    t.integer "employee_id"
+    t.index ["employee_id"], name: "index_appointments_on_employee_id"
   end
 
   create_table "contact_items", force: :cascade do |t|
@@ -258,6 +260,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_153526) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appointments", "employees"
   add_foreign_key "employee_roles", "employees"
   add_foreign_key "employee_roles", "roles"
   add_foreign_key "orderables", "karts"

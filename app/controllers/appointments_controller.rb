@@ -9,10 +9,24 @@ class AppointmentsController < ApplicationController
     end
 
 
+  # PATCH /appointments/:id/assign_employee
+  def assign_employee
+    @appointment = Appointment.find(params[:id])
+    employee = Employee.find(params[:employee_id])
+    @appointment.employee = employee
+
+    if @appointment.save
+      redirect_to appointments_path, notice: "Appointment successfully assigned to the employee."
+    else
+      render :index, alert: "Failed to assign the appointment to the employee."
+    end
+  end
+
   # GET /appointments or /appointments.json
   def index
     # @appointments = Appointment.all
     @appointments = Appointment.includes(:orderables).all
+    @employees = Employee.all
   end
 
   # GET /appointments/1 or /appointments/1.json

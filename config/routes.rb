@@ -5,6 +5,13 @@ Rails.application.routes.draw do
     post 'assign_roles', on: :member
   end
 
+  resources :appointments do
+    member do
+      patch :assign_employee
+    end
+  end
+
+
   get 'cart', to:'kart#show'
   post 'kart/add', to: 'kart#add'
   delete 'kart/remove/:id', to: 'kart#remove', as: :kart_remove

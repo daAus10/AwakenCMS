@@ -1,12 +1,10 @@
+<!-- Display a green notice message if it exists -->
 <p style="color: green"><%= notice %></p>
-
-
 
 <div id="flex">
   <%= render 'layouts/navbar' %>
 
-
-  <div id="right" >
+  <div id="right">
     <h1>Appointments</h1>
 
     <div id="appointments">
@@ -16,9 +14,30 @@
         <p>
           Time: <%= appointment.time %>
         </p>
+
         <% appointment.orderables.each do |orderable| %>
           <li><%= "#{orderable.product.name} - #{orderable.quantity}" %></li>
         <% end %>
+
+
+
+        <p>
+          Assign to employee:
+          <%= form_with(url: assign_employee_appointment_path(appointment), method: :patch, local: true, html: { onchange: 'this.form.submit()' }) do |form| %>
+            <%= form.collection_select(:employee_id, @employees, :id, :name, { selected: appointment.employee_id, prompt: "Assigned to: #{appointment.employee&.name || 'None'}" }, { onchange: 'this.form.submit()' }) %>
+          <% end %>
+        </p>
+
+
+        <!-- Commented out code for another alternative option to assign appointment to an employee -->
+<!--        <p>-->
+<!--          Assign to employee:-->
+          <%#= form_with(url: assign_employee_appointment_path(appointment), method: :patch, local: true) do |form| %>
+            <%#= form.collection_select(:employee_id, @employees, :id, :name, prompt: "Select an employee") %>
+            <%#= form.submit "Assign" %>
+          <%# end %>
+<!--        </p>-->
+
 
         <p>
           <%= link_to "Show this appointment", appointment %>
@@ -26,9 +45,7 @@
       <% end %>
     </div>
 
+    <!-- Commented out code for a link to create a new appointment -->
     <%#= link_to "New appointment", new_appointment_path %>
-
-
   </div>
 </div>
-
