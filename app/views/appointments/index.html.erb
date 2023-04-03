@@ -4,6 +4,7 @@
     .tab {
         overflow: hidden;
         border: 1px solid #ccc;
+        width: 70vw;
         background-color: #f1f1f1;
     }
 
@@ -36,7 +37,10 @@
         border-top: none;
     }
 </style>
+<div id="flex">
+<%= render 'layouts/navbar' %>
 
+  <div id="right">
 <!-- Tab links -->
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'Today')">Today</button>
@@ -121,6 +125,8 @@
     </p>
 
 <% end %>
+</div>
+  </div>
 </div>
 
 
