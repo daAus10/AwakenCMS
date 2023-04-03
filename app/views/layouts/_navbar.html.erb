@@ -12,7 +12,7 @@
         <%= link_to "About", about_views_path %>
         <%= link_to "HotNew", hot_new_views_path %>
         <%= link_to "ServiceCategory", product_categories_path %>
-        <%= link_to "ServiceItems", service_items_path%>
+        <%= link_to "Services", products_path%>
         <%= link_to "Gallery", gallery_views_path %>
         <%= link_to "Contact", contact_types_path %>
         <%= link_to "Location", map_views_path %>
@@ -21,8 +21,8 @@
       <%= link_to "Pages",  root_path ,class:"nested-link"%>
       <a href="#" class="nested-link">Staff</a>
       <div class="sub-menu">
-        <a href="#">Employee</a>
-        <a href="#">Roles</a>
+        <%= link_to "Employees", employees_path %>
+        <%= link_to "Roles", roles_path %>
       </div>
 
       <div>
