@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
 
 
   get 'cart', to:'kart#show'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   # // Date: March 03, 2023
   get '/gallery', to: 'gallery_page#galleryIndex'
   get '/services', to: 'service_page#serviceIndex'
-
+  get '/reviews', to: 'review_views#Index'
   # // Author: Bobola Obi
   # // Date: March 03, 2023
   # // Time: 8:11pm
@@ -37,6 +38,8 @@ Rails.application.routes.draw do
   resources :product_categories
   resources :products
   resources :service_items
+  resources :review_view
+  get '*path', to: 'errors#not_found'
 
   # // Author: Bobola Obi
   # // Date: February 28, 2023

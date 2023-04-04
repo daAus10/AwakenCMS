@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   if @kart.nil?
     @kart = Kart.create
-    session[:kart_id] = @kart.id
+    #session[:kart_id] = @kart.id
   end
 
     def cart_item_count
