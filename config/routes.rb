@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   resources :product_categories
   resources :products
   resources :service_items
+  resources :review_views
 
   # // Author: Bobola Obi
   # // Date: February 28, 2023
