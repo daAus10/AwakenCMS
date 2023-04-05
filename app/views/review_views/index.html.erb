@@ -1,25 +1,20 @@
-<%=  require 'net/http'
-require 'json'
-
-# Set up the API endpoint and parameters
-
-url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJ7zZmas4pO4gRGLzcslTUZaM&key=AIzaSyBDI-RseTM2pc_wUY6TyrxpdOHv4Z0K19Q"
-
-# Make an HTTP request to the API endpoint and parse the response JSON
-uri = URI(url)
-response = Net::HTTP.get(uri)
-result = JSON.parse(response)
-
-# Print the reviews
-     "   Reviews"
-
-
-reviews = result["result"]["reviews"]
-reviews.each do |review|
-puts content_tag(:h1, review['author_name'])
-puts content_tag(:p, review['text'])
-puts content_tag(:p, "Rating: #{review['rating']}")
-puts ""
-end
-
-%>
+<table>
+  <thead>
+  <tr>
+    <th>Author Name</th>
+    <th>Rating</th>
+    <th>Description</th>
+    <th>Text</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @reviews.each do |review| %>
+  <tr>
+    <td><%= review["author_name"] %></td>
+    <td><%= review["rating"] %></td>
+    <td><%= review["relative_time_description"] %></td>
+    <td><%= review["text"] %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
