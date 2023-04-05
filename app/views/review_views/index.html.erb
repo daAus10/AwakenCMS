@@ -1,0 +1,20 @@
+<table>
+  <thead>
+  <tr>
+    <th>Author Name</th>
+    <th>Rating</th>
+    <th>Description</th>
+    <th>Text</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @reviews.each do |review| %>
+  <tr>
+    <td><%= review["author_name"] %></td>
+    <td><%= review["rating"] %></td>
+    <td><%= review["relative_time_description"] %></td>
+    <td><%= review["text"] %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
