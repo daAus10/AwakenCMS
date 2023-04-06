@@ -12,8 +12,8 @@ class KartController < ApplicationController
   def show
     @render_cart = true
     @appointment = Appointment.new
-    @appointments = Appointment.where("created_at >= ?", Time.zone.now.beginning_of_day).pluck(:time).flatten
-    @appointments ||= []
+    @taken_time_slots = Appointment.where("created_at >= ?", Time.zone.now.beginning_of_day).pluck(:time).flatten
+    @taken_time_slots ||= []
   end
 
   def index

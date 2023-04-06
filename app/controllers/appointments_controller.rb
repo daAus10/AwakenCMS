@@ -1,6 +1,5 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
   before_action :authorize_user,
     def authorize_user
       unless current_user
@@ -49,8 +48,8 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/1/edit
   def edit
-    @appointments = Appointment.where("created_at >= ?", Time.zone.now.beginning_of_day).pluck(:time).flatten
-    @appointments ||= []
+    @taken_time_slots = Appointment.where("created_at >= ?", Time.zone.now.beginning_of_day).pluck(:time).flatten
+    @taken_time_slots ||= []
   end
 
   # POST /appointments or /appointments.json
