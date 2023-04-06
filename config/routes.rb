@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :review_displays
   resources :employee_roles
 
   resources :employees do

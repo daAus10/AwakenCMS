@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_03_180127) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_06_020152) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -22,8 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_180127) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_180127) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -218,30 +218,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_180127) do
 
   create_table "review_views", force: :cascade do |t|
     t.string "title"
-    t.string "content"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "service_categories", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.string "link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "service_items", force: :cascade do |t|
-    t.string "service_name"
-    t.integer "time"
-    t.integer "price"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

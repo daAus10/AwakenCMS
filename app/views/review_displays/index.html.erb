@@ -1,0 +1,47 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Review displays</h1>
+
+<div id="review_displays">
+  <% @review_displays.each do |review_display| %>
+    <%= render review_display %>
+    <p>
+      <%= link_to "Show this review display", review_display %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New review display", new_review_display_path %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Review Displays</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Author Name</th>
+    <th>Rating</th>
+    <th>Description</th>
+    <th>Text</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @review_displays.each do |review| %>
+    <tr>
+      <td><%= review["author_name"] %></td>
+      <td><%= review["rating"] %></td>
+      <td><%= review["relative_time_description"] %></td>
+      <td><%= review["text"] %></td>
+<!--      //Alternative-->
+<!--      <td><%#= review_display.author_name %></td>-->
+<!--      <td><%#= review_display.rating %></td>-->
+<!--      <td><%#= review_display.relative_time_description %></td>-->
+<!--      <td><%#= review_display.text %></td>-->
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
