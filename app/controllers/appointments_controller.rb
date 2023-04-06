@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[ show edit update destroy ]
-  before_action :authorize_user,
+  before_action :authorize_user, only: [:edit, :update, :destroy]
     def authorize_user
       unless current_user
         redirect_to root_path, alert: "You must be an editor to access this page."
@@ -24,17 +24,25 @@ class AppointmentsController < ApplicationController
   # app/controllers/appointments_controller.rb
 
   def index
+    if !current_user
+      render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
+    else
     @appointments = Appointment.includes(:orderables).all
     @employees = Employee.all
     @today_appointments = @appointments.select { |a| a.date.present? && a.date == Date.today }
     @upcoming_appointments = @appointments.select { |a| a.date.present? && a.date > Date.today }
     @past_appointments = @appointments.select { |a| a.date.present? && a.date < Date.today }
+    end
   end
 
 
   # GET /appointments/1 or /appointments/1.json
   def show
     @orderables = @appointment.orderables
+    # Restrict access to appointment details
+    if !current_user || current_user != @appointment.user
+      redirect_to root_path, alert: "You are not authorized to access this appointment."
+    end
   end
 
   # GET /appointments/new

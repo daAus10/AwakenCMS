@@ -103,8 +103,7 @@
   <div class="field">
     <%= form.check_box :terms_accepted, id: "terms_accepted", onchange: "toggleSubmitButton(this)" %>
     <%= form.label :terms_accepted, "Before submitting, you agree to the" %>
-    <%= link_to "Terms and Conditions", "/terms_and_conditions" %>
-    <!-- If you want to link to a Google Drive file, replace "/terms_and_conditions" with the file's URL -->
+    <%= link_to "Terms and Conditions", "https://example.com/terms_and_conditions", target: "_blank", rel: "noopener noreferrer" %>
   </div>
 
 

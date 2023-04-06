@@ -36,11 +36,14 @@ class CanvasController < ApplicationController
 
     place_id = "ChIJ7zZmas4pO4gRGLzcslTUZaM"
     api_key = "AIzaSyBDI-RseTM2pc_wUY6TyrxpdOHv4Z0K19Q"
+
+
     url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{place_id}&key=#{api_key}"
 
     uri = URI(url)
     response = Net::HTTP.get(uri)
     result = JSON.parse(response)
+
 
     @reviews = result["result"]["reviews"]
   end

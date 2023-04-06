@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :review_displays
+
   resources :employee_roles
 
   resources :employees do
@@ -59,6 +59,8 @@ Rails.application.routes.draw do
   resources :navbar_views
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  # Catch-all route
+  match '*path', to: 'application#not_found', via: :all
 
 
 end
