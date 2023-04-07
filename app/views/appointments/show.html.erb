@@ -12,7 +12,7 @@
     <thead>
     <tr>
       <th>Product Name</th>
-      <th>Quantity</th>
+<!--      <th>Quantity</th>-->
       <th>Price</th>
     </tr>
     </thead>
@@ -20,7 +20,7 @@
     <% @orderables.each do |orderable| %>
       <tr>
         <td><%= orderable.product.name %></td>
-        <td><%= orderable.quantity %></td>
+<!--        <td><%#= orderable.quantity %></td>-->
         <td><%= orderable.product.price %></td>
       </tr>
     <% end %>

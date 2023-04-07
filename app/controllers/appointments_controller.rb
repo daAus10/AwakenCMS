@@ -3,7 +3,8 @@ class AppointmentsController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :destroy]
     def authorize_user
       unless current_user
-        redirect_to root_path, alert: "You must be an editor to access this page."
+        render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
+        # redirect_to root_path, alert: "You must be an editor to access this page."
       end
     end
 
@@ -40,8 +41,9 @@ class AppointmentsController < ApplicationController
   def show
     @orderables = @appointment.orderables
     # Restrict access to appointment details
-    if !current_user || current_user != @appointment.user
-      redirect_to root_path, alert: "You are not authorized to access this appointment."
+    if !current_user
+      flash[:alert] = "You must be an editor to access this page."
+      redirect_to root_path
     end
   end
 
