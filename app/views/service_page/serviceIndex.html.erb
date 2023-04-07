@@ -19,7 +19,7 @@
     <div>
       <%= categories.title  %>
       <hr>
-      <% @products.each do |items| %>
+      <% categories.products.each do |items| %>
         <label>
           <%= check_box_tag "service_item_ids[]", items.id, false , onchange:"updateCartCount(this)" %>
           <%#= check_box_tag "service_item_ids[]", items.id %>
@@ -32,6 +32,39 @@
   <% end %>
   <%= submit_tag "Add Selected Items to Cart" %>
 <% end %>
+
+<%# if @service_data_title.any? %>
+
+<!--  <h2><%#= @service_data_title.first %></h2>-->
+
+<%# else %>
+<!--  <h2>Title</h2>-->
+<%# end %>
+
+<%# if @service_data_desc.any? %>
+<!--  <p><%#= @service_data_desc.first %></p>-->
+<%# else %>
+<!--  <p>Description</p>-->
+<%# end %>
+
+<%#= form_tag kart_add_path, method: :post, remote: true do %>
+  <%# @product_cat.each do |categories| %>
+<!--    <div>-->
+      <%#= categories.title  %>
+<!--      <hr>-->
+      <%# @products.each do |items| %>
+<!--        <label>-->
+          <%#= check_box_tag "service_item_ids[]", items.id, false , onchange:"updateCartCount(this)" %>
+          <%#= check_box_tag "service_item_ids[]", items.id %>
+          <%#= items.name + " "  + items.price.to_s  + " "  + items.description %>
+<!--        </label>-->
+<!--        <br>-->
+<!--        <br>-->
+      <%# end %>
+<!--    </div>-->
+  <%# end %>
+  <%#= submit_tag "Add Selected Items to Cart" %>
+<%# end %>
 
 <script>
     document.addEventListener("turbo:load", function() {

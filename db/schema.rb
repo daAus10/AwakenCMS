@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_06_020152) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_07_161324) do
   create_table "about_views", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -214,6 +214,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_020152) do
     t.decimal "price", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_category_id", null: false
+    t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 
   create_table "review_views", force: :cascade do |t|
@@ -257,4 +259,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_06_020152) do
   add_foreign_key "orderables", "products"
   add_foreign_key "orederables", "karts"
   add_foreign_key "orederables", "products"
+  add_foreign_key "products", "product_categories"
 end

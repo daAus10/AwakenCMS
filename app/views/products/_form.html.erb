@@ -30,6 +30,10 @@
     <%= form.label :price, style: "display: block" %>
     <%= form.text_field :price %>
   </div>
+  <div class="field">
+    <%= form.label :product_category_id, "Product Category" %>
+    <%= form.collection_select :product_category_id, ProductCategory.all, :id, :title, prompt: "Select a category" %>
+  </div>
 
   <div>
     <%= form.submit %>
