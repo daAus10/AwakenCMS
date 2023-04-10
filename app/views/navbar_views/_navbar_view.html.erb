@@ -1,51 +1,235 @@
-<div id="<%= dom_id navbar_view %>">
-  <p>
-    <strong>Image:</strong>
-    <% if navbar_view.image.attached? %>
+<div id="<%= dom_id navbar_view %>" class="bag-bar">
+  <!-- Hamburger menu button -->
+
+  <div class="bag-bar-brand">
+    <div class="bag-bar-image">
+
+      <% if navbar_view.image.attached? %>
       <%= image_tag navbar_view.image %>
+
     <% else %>
-      No image available.
-    <% end %>
-  </p>
-
-  <p>
-    <strong>Brand name:</strong>
-    <%= navbar_view.brand_name %>
-  </p>
-
-  <p>
-    <strong>Link name1:</strong>
-    <%= navbar_view.link_name1 %>
-  </p>
-
-  <p>
-    <strong>Link name2:</strong>
-    <%= navbar_view.link_name2 %>
-  </p>
-
-  <p>
-    <strong>Link name3:</strong>
-    <%= navbar_view.link_name3 %>
-  </p>
-
-  <p>
-    <strong>Link name4:</strong>
-    <%= navbar_view.link_name4 %>
-  </p>
-
-  <p>
-    <strong>Services link:</strong>
-    <%= navbar_view.services_link %>
-  </p>
-
-  <p>
-    <strong>Gallery link:</strong>
-    <%= navbar_view.gallery_link %>
-  </p>
-
-  <turbo-frame id="cart-count">
-    <div id="cart-count">
-      <%= cart_item_count %> item(s) in cart
+        No image available.
+      <% end %>
     </div>
-  </turbo-frame>
+    <p class="brand-name">
+      <%= navbar_view.brand_name %>
+    </p>
+  </div>
+
+
+  <div class="bag-bar-links">
+    <p>
+      <a href="<%= navbar_view.link_name1 %>"><%= navbar_view.link_name1 %></a>
+    </p>
+
+    <p>
+      <a href="<%= navbar_view.link_name2 %>"><%= navbar_view.link_name2 %></a>
+    </p>
+
+    <p>
+      <a href="<%= navbar_view.link_name3 %>"><%= navbar_view.link_name3 %></a>
+    </p>
+
+    <p>
+      <a href="<%= navbar_view.link_name4 %>"><%= navbar_view.link_name4 %></a>
+    </p>
+  </div>
+
+  <div class="bag-bar-right">
+    <p>
+      <%= navbar_view.services_link %>
+    </p>
+
+    <p>
+      <%= navbar_view.gallery_link %>
+    </p>
+
+
+    <turbo-frame id="cart-count">
+      <div id="cart-count" class="cart-count-wrapper">
+      <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="cart-count-number"><%= @kart.quantity %> </span>
+      </div>
+    </turbo-frame>
+
+  </div>
+
+  <button class="hamburger" onclick="toggleNavbarLinks()">
+    &#9776;
+  </button>
+
+  <!-- Close button -->
+  <button class="close-btn" onclick="toggleNavbarLinks()">
+    &times;
+  </button>
 </div>
+
+<style>
+    /* Cart count container */
+    .cart-count-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Cart count number */
+    .cart-count-number {
+        position: absolute;
+        top: -10px;
+        right: -7px;
+        background-color: #d32222;
+        color: white;
+        font-weight: bold;
+        padding: 3px 3px;
+        font-size: 15px;
+        border-radius: 100%;
+        width: 14px;
+        text-align: center;
+    }
+    /* Bag bar container */
+    .bag-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    /* Bag bar brand */
+    .bag-bar-brand {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* Bag bar image */
+    .bag-bar-image {
+        margin-right: 10px;
+        position: relative;
+    }
+
+    /* Bag bar links */
+    .bag-bar-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 10px;
+
+    }
+
+    .bag-bar-links p {
+        margin: 0;
+        padding: 5px;
+    }
+
+    /* Brand name */
+    .brand-name {
+        margin: 0;
+        padding: 5px;
+        font-weight: bold;
+    }
+
+    /* Bag bar right */
+    .bag-bar-right {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        margin-left: 10px;
+    }
+
+    .bag-bar-right p {
+        margin: 0;
+        padding: 5px;
+    }
+
+    /* Cart count */
+    #cart-count {
+        margin-top: 0px;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+
+    /* Hamburger and close buttons */
+     .hamburger, .close-btn {
+         display: none;
+         cursor: pointer;
+         font-size: 1.5em;
+         background-color: transparent; /* remove the default button background */
+         border: none; /*  remove the default button border */
+         color: #000; /*  set the button color */
+     }
+
+    /* Close button */
+    .close-btn {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        display: none;
+    }
+
+
+    /* Show bag bar links when the class "show" is added */
+    .bag-bar-links.show {
+        display: flex;
+    }
+
+    /* Media queries */
+    @media only screen and (max-width: 600px) {
+        /* Hide bag bar links on smaller screens */
+        .bag-bar-links {
+            display: none;
+        }
+        .hamburger {
+            display: block;
+        }
+
+        .bag-bar-links.show {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center links vertically */
+            align-items: center; /* Center links horizontally */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh; /* Set height to 100% */
+            background-color: #ffffff;
+            z-index: 1;
+            overflow: auto;
+        }
+
+
+        .bag-bar-links.show + .close-btn {
+            display: block;
+
+        }
+        /* Show the close button when the menu is open */
+        .show-menu .close-btn {
+            display: block;
+        }
+        .bag-bar-links.show p {
+            margin: 20px 0; /* Add vertical margin */
+            text-align: center; /* Center text */
+        }
+        /* Disable scrolling in the background when the menu is open */
+        body.show-menu {
+            overflow: hidden;
+        }
+    }
+
+</style>
+
+<script>
+        function toggleNavbarLinks() {
+        const navbarLinks = document.querySelector(".bag-bar-links");
+        navbarLinks.classList.toggle("show");
+
+        // Toggle body class to disable/enable scrolling
+        document.body.classList.toggle("show-menu");
+    }
+</script>

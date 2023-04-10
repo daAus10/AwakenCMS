@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
   before_action :initialize_cart
   before_action :set_navbar_views
   before_action :set_render_kart_count
+  before_action :set_footer_views
 
+  private
+
+  def set_footer_views
+    @footer_views = FooterView.all
+  end
   def set_render_kart_count
     @render_kart_count = true
   end
@@ -16,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
   def set_navbar_views
     @navbar_views = NavbarView.all
-    @footer_views = FooterView.all
+
   end
 
   def initialize_cart

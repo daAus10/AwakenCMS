@@ -1,4 +1,11 @@
 
-<div id="cart-count">
-  <%= @kart.quantity %> item(s) in cart
+<!--<div id="cart-count">-->
+<!--  <%#= @kart.quantity %> item(s) in cart-->
+<!--</div>-->
+
+
+<div id="cart-count" class="cart-count-wrapper">
+  <span class="material-symbols-outlined">shopping_cart</span>
+<!--  <span class="cart-count-number"><%#= cart_item_count %></span>-->
+  <span class="cart-count-number"><%= @kart.quantity %> </span>
 </div>

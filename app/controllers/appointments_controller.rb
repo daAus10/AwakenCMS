@@ -2,10 +2,6 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[ show edit update destroy ]
   before_action :authorize_user, only: [:edit, :update, :destroy]
 
-
-
-
-
   def authorize_user
       unless current_user
         render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
