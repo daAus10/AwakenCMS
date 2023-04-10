@@ -5,7 +5,7 @@
 
   <div id="navbar_views">
     <% @navbar_views.each do |navbar_view| %>
-      <%= render navbar_view %>
+      <%= render partial: 'navbar_views/navbar_view', locals: { navbar_view: navbar_view } %>
     <% end %>
   </div>
 </div>

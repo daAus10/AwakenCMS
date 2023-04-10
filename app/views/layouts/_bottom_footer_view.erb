@@ -1,0 +1,12 @@
+
+
+<div id="footer-bar">
+  <!-- Add other navigation elements here -->
+
+  <div id="footer_views">
+    <% @footer_views.each do |footer_view| %>
+      <%= render partial: 'footer_views/footer_view', locals: { footer_view: footer_view } %>
+    <% end %>
+
+  </div>
+</div>
