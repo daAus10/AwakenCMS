@@ -26,6 +26,11 @@
     <%= form.text_field :external_link %>
   </div>
 
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :gallery_view_image %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

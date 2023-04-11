@@ -29,6 +29,7 @@ class CanvasController < ApplicationController
     @contact_view = ContactType.all
     @map_view = MapView.all
     @footer_view = FooterView.all
+    @gallery_View_Card = GalleryView.all
 
     # Code moved from ReviewViewsController#index
     require 'net/http'

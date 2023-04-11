@@ -71,6 +71,6 @@ class GalleryViewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gallery_view_params
-      params.require(:gallery_view).permit(:title, :description, :external_link)
+      params.require(:gallery_view).permit(:title, :description, :external_link, :image)
     end
 end
