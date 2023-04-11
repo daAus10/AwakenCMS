@@ -1,24 +1,47 @@
-<div id="<%= dom_id about_view %>">
+<div id="<%= dom_id about_view %>" class="about-container">
 
+  <div class="about-content">
+    <h2 id="about-h2"><%= about_view.title %></h2>
 
-      <p>
-        <strong>Title:</strong>
-        <%= about_view.title %>
-      </p>
+    <p id="about-p"><%= about_view.description %></p>
 
-      <p>
-        <strong>Description:</strong>
-        <%= about_view.description %>
-      </p>
-
-      <p>
-        <strong>About link:</strong>
-        <%= about_view.about_link %>
-      </p>
-
-    </div>
-
-
+<!--    <p>-->
+<!--      <strong>About link:</strong>-->
+      <%#= about_view.about_link %>
+<!--    </p>-->
+  </div>
 
 </div>
+
+<style>
+    .about-container {
+        height: 40vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        text-align: center;
+        width: 65%;
+
+    }
+
+    #about-h2 {
+        margin-bottom: 25px;
+    }
+
+    #about-p{
+        line-height: 20px;
+    }
+
+
+
+</style>
+
 
