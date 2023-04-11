@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Catch-all route
-  match '*path', to: 'application#not_found', via: :all
+  # match '*path', to: 'application#not_found', via: :all
 
 
 end

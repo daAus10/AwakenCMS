@@ -10,7 +10,6 @@ class NavbarViewsController < ApplicationController
 
   # GET /navbar_views or /navbar_views.json
   def index
-
     @navbar_views = NavbarView.all
 
   end

@@ -1,12 +1,9 @@
 <div id="<%= dom_id navbar_view %>" class="bag-bar">
   <!-- Hamburger menu button -->
-
   <div class="bag-bar-brand">
     <div class="bag-bar-image">
-
       <% if navbar_view.image.attached? %>
-      <%= image_tag navbar_view.image %>
-
+        <%= image_tag navbar_view.image, class: "navbar-image" %>
     <% else %>
         No image available.
       <% end %>
@@ -16,34 +13,18 @@
     </p>
   </div>
 
-
   <div class="bag-bar-links">
-    <p>
-      <a href="<%= navbar_view.link_name1 %>"><%= navbar_view.link_name1 %></a>
-    </p>
-
-    <p>
-      <a href="<%= navbar_view.link_name2 %>"><%= navbar_view.link_name2 %></a>
-    </p>
-
-    <p>
-      <a href="<%= navbar_view.link_name3 %>"><%= navbar_view.link_name3 %></a>
-    </p>
-
-    <p>
-      <a href="<%= navbar_view.link_name4 %>"><%= navbar_view.link_name4 %></a>
-    </p>
+    <p><a href="<%= navbar_view.link_name1 %>"><%= navbar_view.link_name1 %></a></p>
+    <p><a href="<%= navbar_view.link_name2 %>"><%= navbar_view.link_name2 %></a></p>
+    <p><a href="<%= navbar_view.link_name3 %>"><%= navbar_view.link_name3 %></a></p>
+    <p><a href="<%= navbar_view.link_name4 %>"><%= navbar_view.link_name4 %></a></p>
   </div>
 
   <div class="bag-bar-right">
-    <p>
-      <%= navbar_view.services_link %>
-    </p>
-
-    <p>
-      <%= navbar_view.gallery_link %>
-    </p>
-
+  <div class="showCart">
+    <p><%= navbar_view.services_link %></p>
+    <p><%= navbar_view.gallery_link %></p>
+  </div>
 
     <turbo-frame id="cart-count">
       <div id="cart-count" class="cart-count-wrapper">
@@ -51,47 +32,36 @@
         <span class="cart-count-number"><%= @kart.quantity %> </span>
       </div>
     </turbo-frame>
-
   </div>
 
-  <button class="hamburger" onclick="toggleNavbarLinks()">
-    &#9776;
-  </button>
-
-  <!-- Close button -->
-  <button class="close-btn" onclick="toggleNavbarLinks()">
-    &times;
-  </button>
+  <button class="hamburger" onclick="toggleNavbarLinks()">&#9776;</button>
+  <button class="close-btn" onclick="toggleNavbarLinks()">&times;</button>
 </div>
 
 <style>
-    /* Cart count container */
-    .cart-count-wrapper {
+    .navbar-image {
+       max-width: 75px;
+        position: absolute;
+        top: 15px;
+    }
+    /* Brand name */
+    .brand-name {
+        font-family: 'Aboreto';
+        font-size: 22px;
+        padding: 10px 0px;
+        font-weight: bold;
+        margin-left: 85px;
+        margin-bottom: 0;
         position: relative;
-        display: inline-block;
     }
 
-    /* Cart count number */
-    .cart-count-number {
-        position: absolute;
-        top: -10px;
-        right: -7px;
-        background-color: #d32222;
-        color: white;
-        font-weight: bold;
-        padding: 3px 3px;
-        font-size: 15px;
-        border-radius: 100%;
-        width: 14px;
-        text-align: center;
-    }
     /* Bag bar container */
     .bag-bar {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        padding: 20px 20px 10px  20px;
         border: 1px solid black;
     }
 
@@ -102,19 +72,12 @@
         align-items: center;
     }
 
-    /* Bag bar image */
-    .bag-bar-image {
-        margin-right: 10px;
-        position: relative;
-    }
-
     /* Bag bar links */
     .bag-bar-links {
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-left: 10px;
-
     }
 
     .bag-bar-links p {
@@ -122,15 +85,10 @@
         padding: 5px;
     }
 
-    /* Brand name */
-    .brand-name {
-        margin: 0;
-        padding: 5px;
-        font-weight: bold;
-    }
+
 
     /* Bag bar right */
-    .bag-bar-right {
+    .bag-bar-right , .showCart{
         display: flex;
         flex-direction: row;
         align-items: flex-end;
@@ -177,11 +135,31 @@
     .bag-bar-links.show {
         display: flex;
     }
+    /* Cart count container */
+    .cart-count-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Cart count number */
+    .cart-count-number {
+        position: absolute;
+        top: -10px;
+        right: -7px;
+        background-color: #d32222;
+        color: white;
+        font-weight: bold;
+        padding: 3px 3px;
+        font-size: 15px;
+        border-radius: 100%;
+        width: 14px;
+        text-align: center;
+    }
 
     /* Media queries */
     @media only screen and (max-width: 600px) {
         /* Hide bag bar links on smaller screens */
-        .bag-bar-links {
+        .bag-bar-links, .showCart {
             display: none;
         }
         .hamburger {
@@ -202,6 +180,7 @@
             z-index: 1;
             overflow: auto;
         }
+
 
 
         .bag-bar-links.show + .close-btn {
