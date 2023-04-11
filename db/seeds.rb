@@ -34,7 +34,7 @@ FooterView.create(brand_name: "Spa Example", group_title: "Opening Hours", monda
 GalleryView.create(title: "Relaxing Atmosphere", description: "Enjoy a peaceful and calming environment during your spa visit.", external_link: "www.example.com/gallery")
 
 # Seed data for HeroView
-HeroView.create(title: "Welcome to Our Spa", description: "Experience the ultimate relaxation and rejuvenation.", button: "Book Now", isVisible: true)
+HeroView.create(title: "Welcome to Our Spa", description: "Experience the ultimate relaxation and rejuvenation.", button: "Book Now")
 
 # Seed data for HotNewView
 HotNewView.create(title: "New Treatment Alert", description: "Try our newest treatment, designed to help you unwind and relax.", isVisible: true, link: "new-treatment")
@@ -71,7 +71,7 @@ Employee.create(name: "Sophia Rodriguez")
 Employee.create(name: "Isabella Taylor")
 
 # Seed data for FooterView
-FooterView.create(brand_name: "My Brand", group_title: "My Group", monday: "9:00am - 5:00pm", tuesday: "9:00am - 5:00pm", wednesday: "9:00am - 5:00pm", thursday: "9:00am - 5:00pm", friday: "9:00am - 5:00pm", saturday: "Closed", sunday: "Closed")
+FooterView.create(brand_name: "Awaken", group_title: "My Group", monday: "9:00am - 5:00pm", tuesday: "9:00am - 5:00pm", wednesday: "9:00am - 5:00pm", thursday: "9:00am - 5:00pm", friday: "9:00am - 5:00pm", saturday: "Closed", sunday: "Closed")
 
 # Seed data for GalleryImagePost
 GalleryImagePost.create
@@ -91,3 +91,22 @@ Role.create(name: "Yoga Instructor")
 
 # Seed data for ServiceViewCard
 ServiceViewCard.create(title: "Our Products", description: "At our spa, we only use and sell the highest quality products. From hair care to skin care, we have everything you need to feel and look your best.")
+
+require 'faker'
+
+# Assuming you already have 10 categories in your product_categories table
+category_ids = ProductCategory.pluck(:id)
+
+10.times do |i|
+  category_ids.each do |category_id|
+    Product.create(
+      name: Faker::Commerce.product_name,
+      time: Faker::Time.between(from: 30.days.ago, to: Time.now),
+      description: Faker::Lorem.paragraph(sentence_count: 3),
+      price: Faker::Commerce.price(range: 0.01..999.99, as_string: false),
+      created_at: Faker::Time.between(from: 60.days.ago, to: 30.days.ago),
+      updated_at: Faker::Time.between(from: 30.days.ago, to: Time.now),
+      product_category_id: category_id
+    )
+  end
+end
