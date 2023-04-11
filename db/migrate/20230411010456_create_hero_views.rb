@@ -4,7 +4,6 @@ class CreateHeroViews < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :description
       t.string :button
-      t.boolean :isVisible
 
       t.timestamps
     end

@@ -17,7 +17,7 @@ class HeroViewsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create hero_view" do
     assert_difference("HeroView.count") do
-      post hero_views_url, params: { hero_view: { button: @hero_view.button, description: @hero_view.description, isVisible: @hero_view.isVisible, title: @hero_view.title } }
+      post hero_views_url, params: { hero_view: { button: @hero_view.button, description: @hero_view.description, title: @hero_view.title } }
     end
 
     assert_redirected_to hero_view_url(HeroView.last)
@@ -34,7 +34,7 @@ class HeroViewsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update hero_view" do
-    patch hero_view_url(@hero_view), params: { hero_view: { button: @hero_view.button, description: @hero_view.description, isVisible: @hero_view.isVisible, title: @hero_view.title } }
+    patch hero_view_url(@hero_view), params: { hero_view: { button: @hero_view.button, description: @hero_view.description, title: @hero_view.title } }
     assert_redirected_to hero_view_url(@hero_view)
   end
 

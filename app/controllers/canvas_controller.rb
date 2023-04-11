@@ -21,7 +21,7 @@ class CanvasController < ApplicationController
   end
   def index
     @navbar_view = NavbarView.all
-    @hero_view = HeroView.where(isVisible: true)
+    @hero_view = HeroView.all
     @about_view = AboutView.all
     @hot_section_view = HotNewView .all
     @service_view = ServiceViewCard.all

@@ -16,7 +16,6 @@ class HeroViewsTest < ApplicationSystemTestCase
 
     fill_in "Button", with: @hero_view.button
     fill_in "Description", with: @hero_view.description
-    check "Isvisible" if @hero_view.isVisible
     fill_in "Title", with: @hero_view.title
     click_on "Create Hero view"
 
@@ -30,7 +29,6 @@ class HeroViewsTest < ApplicationSystemTestCase
 
     fill_in "Button", with: @hero_view.button
     fill_in "Description", with: @hero_view.description
-    check "Isvisible" if @hero_view.isVisible
     fill_in "Title", with: @hero_view.title
     click_on "Update Hero view"
 

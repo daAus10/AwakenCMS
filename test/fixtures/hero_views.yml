@@ -4,10 +4,8 @@ one:
   title: MyString
   description: MyText
   button: MyString
-  isVisible: false
 
 two:
   title: MyString
   description: MyText
   button: MyString
-  isVisible: false

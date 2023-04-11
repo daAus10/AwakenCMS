@@ -12,11 +12,6 @@
   <% end %>
 
   <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image, multiple: true %>
-  </div>
-
-  <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
@@ -32,8 +27,8 @@
   </div>
 
   <div>
-    <%= form.label :isVisible, style: "display: block" %>
-    <%= form.check_box :isVisible %>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
   </div>
 
   <div>

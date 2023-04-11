@@ -1,11 +1,5 @@
 class HeroViewsController < ApplicationController
   before_action :set_hero_view, only: %i[ show edit update destroy ]
-  before_action :authorize_user,
-    def authorize_user
-      unless current_user
-        redirect_to root_path, alert: "You must be an editor to access this page."
-      end
-    end
 
   # GET /hero_views or /hero_views.json
   def index
@@ -71,6 +65,6 @@ class HeroViewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def hero_view_params
-      params.require(:hero_view).permit(:image, :title, :description, :button, :isVisible)
+      params.require(:hero_view).permit(:title, :description, :button, :image)
     end
 end

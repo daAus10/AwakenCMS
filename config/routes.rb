@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hero_views
 
   resources :employee_roles
 
@@ -45,7 +46,6 @@ Rails.application.routes.draw do
   resources :gallery_views
   resources :service_categories
   resources :about_views
-  resources :hero_views
   resources :product_categories
   resources :products
   resources :service_items
