@@ -15,15 +15,6 @@ NavbarView.create(brand_name: "Awaken", link_name1: "about", link_name2: "servic
 # Seed data for AboutView
 AboutView.create(title: "About Us", description: "Welcome to our spa, where we offer a wide range of treatments designed to help you relax, rejuvenate, and find balance. Our skilled therapists are dedicated to providing personalized services tailored to your needs.", about_link: "about-us")
 
-# Seed data for Appointment
-
-# Seed data for ContactItem
-ContactItem.create(image: "contact-image.jpg", attachment: "contact-attachment.pdf", contactType: "Email", string: "Email Us", contact: "info@spaexample.com")
-
-# Seed data for ContactType
-ContactType.create(title: "Phone", description: "Feel free to give us a call to schedule an appointment or ask any questions about our services.")
-
-
 # Seed data for EmployeeRole
 EmployeeRole.create(employee_id: 1, role_id: 1)
 
