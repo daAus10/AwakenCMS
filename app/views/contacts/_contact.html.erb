@@ -1,0 +1,57 @@
+<div id="<%= dom_id contact %>" class="contact-container-2">
+  <div class="canvas">
+    <% if contact.image.attached? %>
+      <%= image_tag contact.image, class: "navbar-image" %>
+    <% end %>
+
+
+    <p>
+      <a class="contact-link" href="mailto:<%= contact.email %>" style="padding: 50px;"><%= contact.email %></a>
+    </p>
+
+    <p>
+      <a class="contact-link" href="tel:<%= contact.number %>" style="padding: 50px;"><%= contact.number %></a>
+    </p>
+
+
+  </div>
+</div>
+
+<style>
+    .canvas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color: white;
+        padding: 25px 100px;
+        margin: 40px;
+        width: 200px;
+        height: 130px;
+    }
+
+    .navbar-image {
+        max-width: 75px;
+        margin: 10px 10px;
+    }
+
+    .contact-container-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 48;
+    }
+
+    .contact-link {
+        text-decoration: none;
+        color: white;
+    }
+</style>

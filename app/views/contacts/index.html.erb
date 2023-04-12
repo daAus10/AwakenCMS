@@ -1,0 +1,79 @@
+<!--<p style="color: green"><%#= notice %></p>-->
+
+<!--<h1>Contacts</h1>-->
+
+<!--<div id="contacts">-->
+  <%# @contacts.each do |contact| %>
+    <%#= render contact %>
+<!--    <p>-->
+      <%#= link_to "Show this contact", contact %>
+<!--    </p>-->
+  <%# end %>
+<!--</div>-->
+
+<%#= link_to "New contact", new_contact_path %>
+
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Contacts</h1>
+
+<div class="contact-container">
+  <% @contacts.each do |contact| %>
+    <div class="contact-container-2">
+      <div id="canvas">
+        <span class="material-symbols-outlined">
+          <%= render contact %>
+        </span>
+        <p id="contact-p">
+          <%= link_to "Show this contact", contact %>
+        </p>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+
+<%= link_to "New contact", new_contact_path %>
+
+<style>
+    #canvas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color: white;
+        padding: 25px 100px;
+        margin: 40px;
+        width: 200px;
+        height: 130px;
+    }
+
+    img {
+        margin: 10px 10px;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .contact-container-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 48;
+    }
+</style>

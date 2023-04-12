@@ -1,9 +1,7 @@
 class CanvasController < ApplicationController
-
   before_action :cart_item_count
   helper_method :cart_item_count
   before_action :set_render_kart_count
-
   def set_render_kart_count
     @render_kart_count = true
   end
@@ -12,7 +10,6 @@ class CanvasController < ApplicationController
     @kart = Kart.find_or_create_by(id: session[:kart_id])
     @cart_item_count = @kart.orderables.sum(:quantity)
   end
-
 
   def home
     # add any code here that you need for your home page
@@ -26,7 +23,7 @@ class CanvasController < ApplicationController
     @hot_section_view = HotNewView .all
     @service_view = ServiceViewCard.all
     @gallery_view = GalleryView.all
-    @contact_view = ContactType.all
+    @contact = Contact.all
     @map_view = MapView.all
     @footer_view = FooterView.all
     @gallery_View_Card = GalleryView.all
