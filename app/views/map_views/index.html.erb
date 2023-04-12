@@ -1,14 +1,83 @@
-<p style="color: green"><%= notice %></p>
+<!--<p style="color: green"><%#= notice %></p>-->
 
-<h1>Map views</h1>
+<!--<h1>Map views</h1>-->
 
-<div id="map_views">
-  <% @map_views.each do |map_view| %>
-    <%= render map_view %>
-    <p>
-      <%= link_to "Show this map view", map_view %>
-    </p>
-  <% end %>
+<!--<div id="map_views">-->
+  <%# @map_views.each do |map_view| %>
+    <%#= render map_view %>
+<!--    <p>-->
+      <%#= link_to "Show this map view", map_view %>
+<!--    </p>-->
+  <%# end %>
+<!--</div>-->
+
+<%#= link_to "New map view", new_map_view_path %>
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #map-views-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        color: green;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .map-view {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .map-view h2 {
+        margin-top: 0;
+    }
+
+    .show-link {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .new-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.2em;
+    }
+</style>
+
+<div id="map-views-container">
+  <p style="color: green; text-align: center;"><%= notice %></p>
+
+  <h1>Map views</h1>
+
+  <div id="map_views">
+    <% @map_views.each do |map_view| %>
+      <div class="map-view">
+        <%= render map_view %>
+        <p class="show-link">
+          <%= link_to "Show this map view", map_view %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <p class="new-link">
+    <%= link_to "New map view", new_map_view_path %>
+  </p>
 </div>
-
-<%= link_to "New map view", new_map_view_path %>
