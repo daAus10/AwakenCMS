@@ -22,7 +22,7 @@ EmployeeRole.create(employee_id: 1, role_id: 1)
 FooterView.create(brand_name: "Spa Example", group_title: "Opening Hours", monday: "9:00 AM - 7:00 PM", tuesday: "9:00 AM - 7:00 PM", wednesday: "9:00 AM - 7:00 PM", thursday: "9:00 AM - 7:00 PM", friday: "9:00 AM - 7:00 PM", saturday: "10:00 AM - 6:00 PM", sunday: "Closed")
 
 # Seed data for GalleryView
-GalleryView.create(title: "Relaxing Atmosphere", description: "Enjoy a peaceful and calming environment during your spa visit.", external_link: "www.example.com/gallery")
+GalleryView.create(title: "Relaxing Atmosphere", description: "Enjoy a peaceful and calming environment during your spa visit.", external_link: "http://127.0.0.1:3000/gallery")
 
 # Seed data for HeroView
 HeroView.create(title: "Welcome to Our Spa", description: "Experience the ultimate relaxation and rejuvenation.", button: "Book Now")

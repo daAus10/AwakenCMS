@@ -1,71 +1,116 @@
-<div id="<%= dom_id footer_view %>">
-  <p>
-    <strong>Brand image:</strong>
-    <% if footer_view.brand_image.attached? %>
-      <%= image_tag footer_view.brand_image %>
-    <% else %>
-      No brand image available.
+<div id="<%= dom_id footer_view %>" class="footer-container">
+
+  <div class="brand-info">
+    <h1 style="font-weight: bolder"><%= footer_view.brand_name %></h1>
+    <br>
+    <br>
+    <p>
+      <% if footer_view.brand_image.attached? %>
+        <%= image_tag footer_view.brand_image,class: 'awaken-image' %>
+      <% else %>
+        No brand image available.
+      <% end %>
+    </p>
+  </div>
+
+  <div class="schedule-container">
+  <p style="font-weight: bolder">Available Times</p>
+    <br>
+    <br>
+  <div class="schedule">
+    <p><strong>Monday:</strong> <%= footer_view.monday %></p>
+    <br>
+    <p><strong>Tuesday:</strong> <%= footer_view.tuesday %></p>
+    <br>
+    <p><strong>Wednesday:</strong> <%= footer_view.wednesday %></p>
+    <br>
+    <p><strong>Thursday:</strong> <%= footer_view.thursday %></p>
+    <br>
+    <p><strong>Friday:</strong> <%= footer_view.friday %></p>
+    <br>
+    <p><strong>Saturday:</strong> <%= footer_view.saturday %></p>
+    <br>
+    <p><strong>Sunday:</strong> <%= footer_view.sunday %></p>
+  </div>
+  </div>
+
+<div>
+  <p style="font-weight: bolder"> Socials</p>
+  <br>
+  <br>
+  <div class="social-links">
+    <% if footer_view.social_image_1.attached? %>
+      <p class="social-link">
+        <%= image_tag footer_view.social_image_1, class: 'social-image' %>
+      </p>
     <% end %>
-  </p>
 
-  <p>
-    <strong>Brand name:</strong>
-    <%= footer_view.brand_name %>
-  </p>
+    <% if footer_view.social_image_2.attached? %>
+      <p class="social-link">
+        <%= image_tag footer_view.social_image_2, class: 'social-image' %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>Group title:</strong>
-    <%= footer_view.group_title %>
-  </p>
-
-  <p>
-    <strong>Social image 1:</strong>
-    <%= link_to footer_view.social_image_1.filename, footer_view.social_image_1 if footer_view.social_image_1.attached? %>
-  </p>
-
-  <p>
-    <strong>Social image 2:</strong>
-    <%= link_to footer_view.social_image_2.filename, footer_view.social_image_2 if footer_view.social_image_2.attached? %>
-  </p>
-
-  <p>
-    <strong>Social image 3:</strong>
-    <%= link_to footer_view.social_image_3.filename, footer_view.social_image_3 if footer_view.social_image_3.attached? %>
-  </p>
-
-  <p>
-    <strong>Monday:</strong>
-    <%= footer_view.monday %>
-  </p>
-
-  <p>
-    <strong>Tuesday:</strong>
-    <%= footer_view.tuesday %>
-  </p>
-
-  <p>
-    <strong>Wednesday:</strong>
-    <%= footer_view.wednesday %>
-  </p>
-
-  <p>
-    <strong>Thursday:</strong>
-    <%= footer_view.thursday %>
-  </p>
-
-  <p>
-    <strong>Friday:</strong>
-    <%= footer_view.friday %>
-  </p>
-
-  <p>
-    <strong>Saturday:</strong>
-    <%= footer_view.saturday %>
-  </p>
-
-  <p>
-    <strong>Sunday:</strong>
-    <%= footer_view.sunday %>
-  </p>
-
+    <% if footer_view.social_image_3.attached? %>
+      <p class="social-link">
+        <%= image_tag footer_view.social_image_3, class: 'social-image' %>
+      </p>
+    <% end %>
+  </div>
 </div>
+</div>
+
+<style>
+    .footer-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        padding: 30px 70px;
+        color: white;
+        height: 40vh;
+    }
+
+    .brand-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: flex-start;
+    }
+
+    .schedule {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .schedule p {
+       font-style: italic;
+    }
+
+
+    .schedule-container{
+        text-align: center;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+    }
+
+    .social-image{
+        width: 30px;
+    }
+
+    .awaken-image {
+        width: 200px;
+
+    }
+    .social-link {
+        margin-right: 10px;
+    }
+</style>
