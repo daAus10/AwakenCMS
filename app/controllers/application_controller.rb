@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def initialize_cart
+
     @kart ||= Kart.find_by(id: session[:kart_id])
   end
 
