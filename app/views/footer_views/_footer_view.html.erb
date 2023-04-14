@@ -86,12 +86,12 @@
         justify-content: center;
         align-items: center;
     }
+
     .schedule p {
-       font-style: italic;
+        font-style: italic;
     }
 
-
-    .schedule-container{
+    .schedule-container {
         text-align: center;
     }
 
@@ -99,18 +99,35 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-
     }
 
-    .social-image{
+    .social-image {
         width: 30px;
     }
 
     .awaken-image {
         width: 200px;
-
     }
+
     .social-link {
         margin-right: 10px;
     }
+
+    @media only screen and (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+            height: auto;
+            padding: 30px 20px;
+            justify-content: center;
+        }
+        .brand-info {
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .social-links {
+            margin-top: 20px;
+            justify-content: center;
+        }
+    }
+
 </style>
