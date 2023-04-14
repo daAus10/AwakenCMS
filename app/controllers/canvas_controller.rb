@@ -17,16 +17,18 @@ class CanvasController < ApplicationController
     render 'kart/show'
   end
   def index
-    @navbar_view = NavbarView.all
-    @hero_view = HeroView.all
-    @about_view = AboutView.all
-    @hot_section_view = HotNewView .all
-    @service_view = ServiceViewCard.all
-    @gallery_view = GalleryView.all
+    @navbar_view = NavbarView.first
+    @hero_view = HeroView.first
+    @about_view = AboutView.first
+    @hot_section_view = HotNewView.first
+    @products_category = ProductCategory.all
+    @service_view = ServiceViewCard.first
+    @gallery_view = GalleryView.first
     @contact = Contact.all
-    @map_view = MapView.all
-    @footer_view = FooterView.all
-    @gallery_View_Card = GalleryView.all
+    @map_view = MapView.first
+    @footer_view = FooterView.first
+
+
 
     # Code moved from ReviewViewsController#index
     require 'net/http'

@@ -9,8 +9,11 @@ class ServiceViewCardsController < ApplicationController
     end
 
   # GET /service_view_cards or /service_view_cards.json
+
+
   def index
     @service_view_cards = ServiceViewCard.all
+    @product_categories = ProductCategory.all # Fetch all Product Categories
   end
 
   # GET /service_view_cards/1 or /service_view_cards/1.json

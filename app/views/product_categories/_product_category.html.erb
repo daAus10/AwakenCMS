@@ -1,17 +1,88 @@
-<div id="<%= dom_id product_category %>">
-  <p>
-    <strong>Title:</strong>
-    <%= product_category.title %>
-  </p>
+<style>
+    .categories-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
 
-  <p>
-    <strong>Description:</strong>
-    <%= product_category.description %>
-  </p>
+    }
 
-  <p>
-    <strong>Link:</strong>
-    <%= product_category.link %>
-  </p>
+    .category-container {
+        display: flex;
+        flex-direction: column;
+        background-color: black;
+        color: white;
+        width: 290px; /* Fixed width */
+        height: 480px; /* Fixed height */
+        box-sizing: border-box;
+    }
 
+    .category-image {
+        object-fit: cover;
+        width: 100%;
+        height: 55%; /* Adjust the height based on your preference */
+        padding-bottom: 15px;
+    }
+
+    .category-title {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .category-description {
+        text-align: left;
+        margin-bottom: 10px;
+        overflow: hidden; /* Hide the text that exceeds the container's dimensions */
+        display: -webkit-box; /* Use the webkit-box model for display */
+        -webkit-box-orient: vertical; /* Make the box model vertical */
+        -webkit-line-clamp: 4; /* Limit the text to 4 lines */
+        max-width: 100%; /* Set the maximum width for the text container */
+    }
+
+    .category-link {
+        display: block;
+        background-color: black;
+        color: white;
+        border: 2px solid white;
+        padding: 10px;
+        width: 90%;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .category-link:hover {
+        background-color: white;
+        color: black;
+    }
+    .center-content {
+        padding: 20px 20px;
+        height: calc(100% - 60%); /* Set the height based on the remaining height after the image */
+        box-sizing: border-box;
+    }
+</style>
+
+
+<!-- Wrap all category containers within a categories-wrapper -->
+<div class="categories-wrapper">
+  <div class="category-container" id="<%= dom_id product_category %>">
+    <img class="category-image" src="<%= url_for(product_category.image) if product_category.image.attached? %>" alt="Product Category Image">
+
+    <div class="center-content">
+      <h3 class="category-title">
+        <%= product_category.title %>
+      </h3>
+
+      <p class="category-description">
+        <%= product_category.description %>
+      </p>
+
+      <a href="services" class="category-link">
+        <%= product_category.link %>
+      </a>
+    </div>
+  </div>
 </div>
+
+
