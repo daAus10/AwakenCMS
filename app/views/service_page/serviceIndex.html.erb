@@ -1,37 +1,161 @@
 <%#= javascript_include_tag 'cart' %>
+<style>
+    .content-container {
+        background-color: black;
+        color: white;
+        width: 100vw;
+        height: 30vh;
+        padding: 20px;
+        text-align: center;
+    }
 
-<% if @service_data_title.any? %>
+    .content-container h2,
+    .content-container p {
+        text-align: left;
+        margin: 0;
+    }
 
-  <h2><%= @service_data_title.first %></h2>
+    .content-container h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
 
-<% else %>
-  <h2>Title</h2>
-<% end %>
+    .content-container p {
+        font-size: 16px;
+    }
+</style>
 
-<% if @service_data_desc.any? %>
-  <p><%= @service_data_desc.first %></p>
-<% else %>
-  <p>Description</p>
-<% end %>
+<div class="content-container">
+  <% if @service_data_title.any? %>
+    <h2><%= @service_data_title.first %></h2>
+  <% else %>
+    <h2>Title</h2>
+  <% end %>
+
+  <% if @service_data_desc.any? %>
+    <p><%= @service_data_desc.first %></p>
+  <% else %>
+    <p>Description</p>
+  <% end %>
+</div>
 
 <%= form_tag kart_add_path, method: :post, remote: true do %>
+  <div class="button-container">
+    <%= submit_tag "Add To Cart", class: "button-in-container"  %>
+    <a class="button-in-container" href="cart"> Visit Cart</a>
+  </div>
+
+
+
   <% @product_cat.each do |categories| %>
     <div>
-      <%= categories.title  %>
-      <hr>
+     <p class="product-cat"> <%= categories.title  %></p>
+      <br>
       <% categories.products.each do |items| %>
-        <label>
-          <%= check_box_tag "service_item_ids[]", items.id, false , onchange:"updateCartCount(this)" %>
-          <%#= check_box_tag "service_item_ids[]", items.id %>
-          <%= items.name + " "  + items.price.to_s  + " "  + items.description %>
-        </label>
+        <div class="product-container" id="<%= dom_id items %>">
+          <div class="checkbox-container">
+            <p class="product-name">
+              <%= items.name %>
+            </p>
+            <label>
+              <%= check_box_tag "service_item_ids[]", items.id, false , onchange:"updateCartCount(this)" %>
+            </label>
+          </div>
+          <p class="product-price"> CAD
+            <%= items.price %>
+          </p>
+          <p class="product-time">
+            <%= items.time %>
+          </p>
+          <p class="product-description">
+            <%= items.description %>
+          </p>
+        </div>
         <br>
         <br>
       <% end %>
+
     </div>
+
   <% end %>
-  <%= submit_tag "Add Selected Items to Cart" %>
+
+
 <% end %>
+
+
+<style>
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .button-in-container{
+        background-color: black;
+        color: white;
+        border: 1px solid white;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .product-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+    }
+
+    .product-cat {
+        font-size: 28px;
+        font-weight: bold;
+        margin-right: auto;
+
+        margin-left: 30px;
+        border-bottom: 3px solid black;
+        width: 50%;
+    }
+    .product-name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: auto;
+    }
+
+    .product-price {
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: auto;
+    }
+
+    .product-time {
+        font-size: 18px;
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .product-description {
+        font-size: 18px;
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .checkbox-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+</style>
+
+
 
 <%# if @service_data_title.any? %>
 

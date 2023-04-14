@@ -1,22 +1,58 @@
-<div id="<%= dom_id product %>">
-  <p>
-    <strong>Name:</strong>
+<div class="product-container" id="<%= dom_id product %>">
+  <p class="product-name">
     <%= product.name %>
   </p>
 
-  <p>
-    <strong>Time:</strong>
-    <%= product.time %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
+  <p class="product-price">
     <%= product.price %>
   </p>
 
+  <p class="product-time">
+    <%= product.time %>
+  </p>
+
+  <p class="product-description">
+    <%= product.description %>
+  </p>
+
 </div>
+
+<style>
+    .product-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+    }
+
+    .product-name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: auto;
+    }
+
+    .product-price {
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: auto;
+    }
+
+    .product-time {
+        font-size: 18px;
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .product-description {
+        font-size: 18px;
+        text-align: left;
+        margin-top: 10px;
+    }
+
+</style>
