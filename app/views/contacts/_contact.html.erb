@@ -1,18 +1,20 @@
 <div id="<%= dom_id contact %>" class="contact-container-2">
   <div class="canvas">
     <% if contact.image.attached? %>
-      <%= image_tag contact.image, class: "navbar-image" %>
+      <%= image_tag contact.image, class: "contact-image" %>
     <% end %>
 
+    <% if contact.email.present? %>
+      <p>
+        <a class="contact-link" href="mailto:<%= contact.email %>" style="padding: 50px;">EMAIL US</a>
+      </p>
+    <% end %>
 
-    <p>
-      <a class="contact-link" href="mailto:<%= contact.email %>" style="padding: 50px;"><%= contact.email %></a>
-    </p>
-
-    <p>
-      <a class="contact-link" href="tel:<%= contact.number %>" style="padding: 50px;"><%= contact.number %></a>
-    </p>
-
+    <% if contact.number.present? %>
+      <p>
+        <a class="contact-link" href="tel:<%= contact.number %>" style="padding: 50px;">CALL NOW</a>
+      </p>
+    <% end %>
 
   </div>
 </div>
@@ -31,7 +33,7 @@
         height: 130px;
     }
 
-    .navbar-image {
+    .contact-image {
         max-width: 75px;
         margin: 10px 10px;
     }
@@ -44,10 +46,10 @@
 
     .material-symbols-outlined {
         font-variation-settings:
-                'FILL' 0,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 48;
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 48;
     }
 
     .contact-link {

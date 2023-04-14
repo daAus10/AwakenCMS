@@ -1,31 +1,77 @@
-<div id="<%= dom_id hot_new_view %>">
-  <p>
-    <strong>Image:</strong>
-    <% if hot_new_view.image.attached? %>
-      <%= image_tag hot_new_view.image %>
-    <% else %>
-      No image available.
-    <% end %>
-  </p>
+<div class="view-container">
+  <div class="hot-new-view-container">
+    <div class="text-container">
+      <br>
+      <br>
+      <h2 style="padding-left: 25px"><%= hot_new_view.title %></h2>
+      <p><%= hot_new_view.description %></p>
+      <p class="button-container">
+        <a href="<%= hot_new_view.link %>" class="button-hero">Read more</a>
+      </p>
+    </div>
 
-  <p>
-    <strong>Title:</strong>
-    <%= hot_new_view.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= hot_new_view.description %>
-  </p>
-
-  <p>
-    <strong>Isvisible:</strong>
-    <%= hot_new_view.isVisible %>
-  </p>
-
-  <p>
-    <strong>Link:</strong>
-    <%= hot_new_view.link %>
-  </p>
-
+    <div>
+      <% if hot_new_view.image.attached? %>
+        <%= image_tag hot_new_view.image, class: "hot-image-container"  %>
+      <% else %>
+        No image available.
+      <% end %>
+    </div>
+  </div>
 </div>
+
+<style>
+    .hot-new-view-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: black;
+        color: white;
+        width: 60%;
+        margin: auto;
+    }
+
+    .text-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-right: 25px;
+    }
+
+    .text-container h2 {
+        font-weight: bolder;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .text-container p {
+        padding:0 30px;
+        margin-bottom: 20px;
+    }
+
+    .hot-image-container {
+        object-fit: cover;
+        width: 520px;
+        height: 520px;
+
+    }
+
+    .button-hero {
+        border: 1px solid white;
+        color: white;
+        padding: 10px 40px; /* Adjust the padding to make the button smaller or larger */
+        text-decoration: none;
+        border-radius: 0px;
+        font-weight: bold;
+    }
+
+    .button-hero:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .button-container {
+        margin-top: auto;
+    }
+</style>
