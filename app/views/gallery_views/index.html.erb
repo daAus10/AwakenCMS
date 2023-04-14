@@ -1,14 +1,48 @@
 <p style="color: green"><%= notice %></p>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-<h1>Gallery views</h1>
+    td {
 
-<div id="gallery_views">
-  <% @gallery_views.each do |gallery_view| %>
-    <%= render gallery_view %>
-    <p>
-      <%= link_to "Show this gallery view", gallery_view %>
-    </p>
-  <% end %>
-</div>
+        vertical-align: top;
+        display: compact;
+        width: 100%;
+        padding: 10px;
+        padding-bottom: -1000px;
+    }
+    p {
+        text-align: center;
+    }
+    .nav_bar {
 
-<%= link_to "New gallery view", new_gallery_view_path %>
+        vertical-align: top;
+        display: compact;
+        width: 20%;
+        padding: 10px;
+
+    }
+</style>
+
+<table>
+  <tr>
+    <td class="nav_bar">
+      <%= render 'layouts/navbar' %>
+    </td>
+
+    <td>
+      <div id="gallery_views">
+        <% @gallery_views.each do |gallery_view| %>
+          <%= render gallery_view %>
+          <p>
+            <%= link_to "Show this gallery view", gallery_view %>
+          </p>
+        <% end %>
+      </div>
+
+      <%= link_to "New gallery view", new_gallery_view_path %>
+    </td>
+  </tr>
+</table>

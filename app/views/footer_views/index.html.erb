@@ -1,14 +1,45 @@
 <p style="color: green"><%= notice %></p>
+<style>
+    .table {
+        display: table;
+        width: 100%;
+        table-layout: auto;
+        border-collapse: collapse;
+    }
 
-<h1>Footer views</h1>
+    .table-cell {
+        display: compact;
+        vertical-align: top;
+        width: 60%;
+        padding: 20px 120px 120px 340px;
+    }
+    .nav_bar {
+        display: compact;
+        vertical-align: top;
+        width: 20%;
+        padding: 10px;
+    }
 
-<div id="footer_views">
-  <% @footer_views.each do |footer_view| %>
-    <%= render footer_view %>
-    <p>
-      <%= link_to "Show this footer view", footer_view %>
-    </p>
-  <% end %>
+    .nav_bar {
+        width: 10%;
+    }
+</style>
+
+<div class="table">
+  <h1 class="table-cell">Footer views</h1>
+  <div class="nav_bar">
+    <%= render 'layouts/navbar' %>
+  </div>
+  <div class="table-cell">
+    <div id="footer_views">
+      <% @footer_views.each do |footer_view| %>
+        <%= render footer_view %>
+        <p>
+          <%= link_to "Show this footer view", footer_view %>
+        </p>
+      <% end %>
+    </div>
+
+    <%= link_to "New footer view", new_footer_view_path %>
+  </div>
 </div>
-
-<%= link_to "New footer view", new_footer_view_path %>
