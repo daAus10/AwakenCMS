@@ -3,8 +3,14 @@
     <div class="text-container">
       <br>
       <br>
+      <br>
+      <br>
       <h2 style="padding-left: 25px"><%= hot_new_view.title %></h2>
       <p><%= hot_new_view.description %></p>
+      <br>
+      <br>
+      <br>
+      <br>
       <p class="button-container">
         <a href="<%= hot_new_view.link %>" class="button-hero">Read more</a>
       </p>
@@ -27,12 +33,15 @@
         justify-content: space-between;
         background-color: black;
         color: white;
-        width: 60%;
+
+        max-width: 1200px; /* Added max-width to prevent overflowing */
         margin: auto;
+        /*padding: 20px;*/
     }
 
     .text-container {
-        width: 100%;
+        max-width: 250px;
+        /*height: 100%;*/
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -46,15 +55,15 @@
     }
 
     .text-container p {
-        padding:0 30px;
+        padding: 0 30px;
         margin-bottom: 20px;
     }
 
     .hot-image-container {
         object-fit: cover;
-        width: 520px;
-        height: 520px;
-
+        width: 100%;
+        height: auto;
+        max-width: 520px; /* Added max-width to prevent overflowing */
     }
 
     .button-hero {
@@ -73,5 +82,19 @@
 
     .button-container {
         margin-top: auto;
+    }
+
+    /* Media query for mobile devices */
+    @media screen and (max-width: 768px) {
+        .hot-new-view-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hot-image-container {
+            width: 100%;
+            height: auto;
+            max-width: none; /* Remove max-width for mobile devices */
+        }
     }
 </style>

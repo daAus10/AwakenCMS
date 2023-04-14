@@ -6,13 +6,13 @@
 
     <% if contact.email.present? %>
       <p>
-        <a class="contact-link" href="mailto:<%= contact.email %>" style="padding: 50px;">EMAIL US</a>
+        <a class="contact-link" href="mailto:<%= contact.email %>" >EMAIL US</a>
       </p>
     <% end %>
 
     <% if contact.number.present? %>
       <p>
-        <a class="contact-link" href="tel:<%= contact.number %>" style="padding: 50px;">CALL NOW</a>
+        <a class="contact-link" href="tel:<%= contact.number %>">CALL NOW</a>
       </p>
     <% end %>
 
@@ -56,4 +56,28 @@
         text-decoration: none;
         color: white;
     }
+
+    a.contact-link {
+padding: 50px;
+
+    }
+
+    @media only screen and (max-width: 768px) {
+        .canvas {
+            width: 40%;
+            height: auto;
+        }
+
+        .contact-image {
+            max-width: 45px;
+            margin: 10px 10px;
+        }
+        a.contact-link {
+            padding: 20px;
+            font-size: 13px;
+            text-align: center;
+
+        }
+    }
+
 </style>
