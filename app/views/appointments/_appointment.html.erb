@@ -1,27 +1,22 @@
-<div id="<%= dom_id appointment %>">
-  <p>
-    <strong>Name:</strong>
-    <%= appointment.name %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= appointment.phone %>
-  </p>
-
-  <p>
-    <strong>Date:</strong>
-    <%= appointment.date %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= appointment.email %>
-  </p>
-
-  <p>
-    <strong>Special needs:</strong>
-    <%= appointment.special_needs %>
-  </p>
-
+<div id="<%= dom_id appointment %>" class="base">
+  <div class="left-container">
+    <div class="username-row">
+      <span><%= appointment.name %></span>
+      <span><%= appointment.time %></span>
+      <span><%= appointment.date %></span>
+    </div>
+    <div class="special-needs">
+      <%= appointment.special_needs %>
+    </div>
+    <div class="orderables">
+      <% appointment.orderables.each do |orderable| %>
+        <button class="orderable-btn"><%= "#{orderable.product.name} - #{orderable.quantity}" %></button>
+      <% end %>
+    </div>
+  </div>
+  <div class="right-container">
+    <span>Total time: N/A</span>
+    <span><%= appointment.phone %></span>
+    <span><%= appointment.email %></span>
+  </div>
 </div>
