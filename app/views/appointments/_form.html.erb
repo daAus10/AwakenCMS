@@ -17,12 +17,12 @@
   <div class="field">
     <%= form.label "Select a preferred time for Time " %>
     <br>
-    <% morning_times = ['1:00am', '2:30am', '3:00am'] %>
-    <% afternoon_times = ['1:00pm', '2:30pm', '3:00pm'] %>
-    <% evening_times = ['10:00am', '10:30am', '11:00am'] %>
+    <% morning_times = ['9:00am', '10:00am', '11:00am'] %>
+    <% afternoon_times = ['1:00pm', '2:00pm', '3:00pm'] %>
+    <% evening_times = ['4:00pm', '5:00pm', '5:30pm', '6:00pm'] %>
 
 
-    <h3>Morn</h3>
+    <h3>Morning</h3>
     <% morning_times.each do |time| %>
       <% disabled = @taken_time_slots.include?(time) %>
       <label class="custom-radio <%= 'disabled' if disabled %>" for="time-<%= time %>">
@@ -48,34 +48,36 @@
       </label>
     <% end %>
 
+    <table class="appt_form">
   </div>
-  <div>
+  <h3 class="apt_title">Appointment Form</h3>
+  <div class="input-container">
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
+  <div class="input-container">
     <%= form.label :phone, style: "display: block" %>
     <%= form.text_field :phone %>
   </div>
 
-  <div>
+  <div class="input-container">
     <%= form.label :date, style: "display: block" %>
     <%= form.date_field :date %>
   </div>
 
-  <div>
+  <div class="input-container">
     <%= form.label :email, style: "display: block" %>
     <%= form.text_field :email %>
   </div>
 
-  <div>
+  <div class="input-container">
     <%= form.label :special_needs, style: "display: block" %>
     <%= form.text_area :special_needs %>
   </div>
 
 
-  <h3>Order Details:</h3>
+  <h3>Services Details:</h3>
   <table>
     <thead>
     <tr>
@@ -111,11 +113,22 @@
     <%= form.submit "Submit", disabled: true %>
   </div>
 <% end %>
-
+</table>
 
 
 <style>
+  .appt_form {
+      border-color: #2E2F30;
+  }
+
+  .apt_title { align-self: center}
     /* Custom radio button styles */
+    .input-container {
+        display: table;
+        width: 45%; /* Optional: Set a width to adjust the spacing between elements */
+        margin-right: 5%; /* Optional: Add some margin to the right of each element */
+    }
+
     .custom-radio {
         display: inline-block;
         background-color: black;
