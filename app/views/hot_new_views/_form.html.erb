@@ -1,42 +1,92 @@
-<%= form_with(model: hot_new_view) do |form| %>
-  <% if hot_new_view.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(hot_new_view.errors.count, "error") %> prohibited this hot_new_view from being saved:</h2>
+<div class="hot-new-view-container">
+  <%= form_with(model: hot_new_view) do |form| %>
+    <% if hot_new_view.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(hot_new_view.errors.count, "error") %> prohibited this hot_new_view from being saved:</h2>
 
-      <ul>
-        <% hot_new_view.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% hot_new_view.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :image, style: "display: block" %>
+      <%= form.file_field :image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :isVisible, style: "display: block" %>
+      <%= form.check_box :isVisible %>
+    </div>
+
+    <div class="field">
+      <%= form.label :link, style: "display: block" %>
+      <%= form.text_field :link %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save", class: "save-button" %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
-  </div>
+<style>
+    /* Style for the container */
+    .hot-new-view-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+    /* Style for the input fields */
+    input[type="text"],
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
+    /* Style for the checkbox input field */
+    input[type="checkbox"] {
+        display: inline-block;
+        margin-right: 10px;
+    }
 
-  <div>
-    <%= form.label :isVisible, style: "display: block" %>
-    <%= form.check_box :isVisible %>
-  </div>
+    /* Style for the submit button */
+    .save-button {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
 
-  <div>
-    <%= form.label :link, style: "display: block" %>
-    <%= form.text_field :link %>
-  </div>
+    /* Style for the submit button when hovered */
+    .save-button:hover {
+        background-color: #1d941d;
+    }
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    /* Style for the error messages */
+    .error-messages {
+        color: red;
+    }
+</style>

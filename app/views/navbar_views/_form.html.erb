@@ -1,59 +1,107 @@
-<%= form_with(model: navbar_view) do |form| %>
+<div class="navbar-view-container">
+  <%= form_with(model: navbar_view) do |form| %>
+    <% if navbar_view.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(navbar_view.errors.count, "error") %> prohibited this navbar_view from being saved:</h2>
 
-  <% if navbar_view.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(navbar_view.errors.count, "error") %> prohibited this navbar_view from being saved:</h2>
+        <ul>
+          <% navbar_view.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-        <% navbar_view.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div>
+      <%= form.label :image, style: "display: block" %>
+      <%= form.file_field :image %>
+
+    </div>
+
+    <div>
+      <%= form.label :brand_name, style: "display: block" %>
+      <%= form.text_field :brand_name %>
+    </div>
+
+    <div>
+      <%= form.label :link_name1, style: "display: block" %>
+      <%= form.text_field :link_name1 %>
+    </div>
+
+    <div>
+      <%= form.label :link_name2, style: "display: block" %>
+      <%= form.text_field :link_name2 %>
+    </div>
+
+    <div>
+      <%= form.label :link_name3, style: "display: block" %>
+      <%= form.text_field :link_name3 %>
+    </div>
+
+    <div>
+      <%= form.label :link_name4, style: "display: block" %>
+      <%= form.text_field :link_name4 %>
+    </div>
+
+    <div>
+      <%= form.label :services_link, style: "display: block" %>
+      <%= form.text_field :services_link %>
+    </div>
+
+    <div>
+      <%= form.label :gallery_link, style: "display: block" %>
+      <%= form.text_field :gallery_link %>
+    </div>
+
+    <div>
+      <%= form.submit "Save", class: "save-button" %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
+<style>
+    /* Style for the container */
+    .navbar-view-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
 
-  </div>
+    /* Style for the input fields */
+    input[type="text"] {
+        display: block;
+        width: 100%;
+        padding: 50px 0;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
 
-  <div>
-    <%= form.label :brand_name, style: "display: block" %>
-    <%= form.text_field :brand_name %>
-  </div>
+    /* Style for the file input */
+    input[type="file"] {
+        display: block;
+        margin: 20px 0;
+    }
 
-  <div>
-    <%= form.label :link_name1, style: "display: block" %>
-    <%= form.text_field :link_name1 %>
-  </div>
+    /* Style for the save button */
+    .save-button {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
 
-  <div>
-    <%= form.label :link_name2, style: "display: block" %>
-    <%= form.text_field :link_name2 %>
-  </div>
+    /* Style for the save button when hovered */
+    .save-button:hover {
+        background-color: #1d941d;
+    }
 
-  <div>
-    <%= form.label :link_name3, style: "display: block" %>
-    <%= form.text_field :link_name3 %>
-  </div>
-
-  <div>
-    <%= form.label :link_name4, style: "display: block" %>
-    <%= form.text_field :link_name4 %>
-  </div>
-
-  <div>
-    <%= form.label :services_link, style: "display: block" %>
-    <%= form.text_field :services_link %>
-  </div>
-
-  <div>
-    <%= form.label :gallery_link, style: "display: block" %>
-    <%= form.text_field :gallery_link %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    /* Style for the error messages */
+    .error-messages {
+        color: red;
+    }
+</style>

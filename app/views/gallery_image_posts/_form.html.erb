@@ -1,22 +1,60 @@
-<%= form_with(model: gallery_image_post) do |form| %>
-  <% if gallery_image_post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(gallery_image_post.errors.count, "error") %> prohibited this gallery_image_post from being saved:</h2>
+<div class="gallery-image-post-container">
+  <%= form_with(model: gallery_image_post) do |form| %>
+    <% if gallery_image_post.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(gallery_image_post.errors.count, "error") %> prohibited this gallery_image_post from being saved:</h2>
 
-      <ul>
-        <% gallery_image_post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% gallery_image_post.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :image, style: "display: block" %>
+      <%= form.file_field :image %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save", class: "save-button" %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
-  </div>
+<style>
+    /* Style for the container */
+    .gallery-image-post-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    /* Style for the file input field */
+    input[type="file"] {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Style for the submit button */
+    .save-button {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Style for the submit button when hovered */
+    .save-button:hover {
+        background-color: #1d941d;
+    }
+
+    /* Style for the error messages */
+    .error-messages {
+        color: red;
+    }
+</style>

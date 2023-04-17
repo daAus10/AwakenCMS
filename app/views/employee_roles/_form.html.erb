@@ -1,27 +1,70 @@
-<%= form_with(model: employee_role) do |form| %>
-  <% if employee_role.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(employee_role.errors.count, "error") %> prohibited this employee_role from being saved:</h2>
+<div class="employee-role-container">
+  <%= form_with(model: employee_role) do |form| %>
+    <% if employee_role.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(employee_role.errors.count, "error") %> prohibited this employee_role from being saved:</h2>
 
-      <ul>
-        <% employee_role.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% employee_role.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :employee_id, style: "display: block" %>
+      <%= form.text_field :employee_id %>
+    </div>
+
+    <div class="field">
+      <%= form.label :role_id, style: "display: block" %>
+      <%= form.text_field :role_id %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save", class: "save-button" %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :employee_id, style: "display: block" %>
-    <%= form.text_field :employee_id %>
-  </div>
+<style>
+    /* Style for the container */
+    .employee-role-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
 
-  <div>
-    <%= form.label :role_id, style: "display: block" %>
-    <%= form.text_field :role_id %>
-  </div>
+    /* Style for the input fields */
+    input[type="text"] {
+        display: block;
+        width: 100%;
+        padding: 50px 0;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    /* Style for the save button */
+    .save-button {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Style for the save button when hovered */
+    .save-button:hover {
+        background-color: #1d941d;
+    }
+
+    /* Style for the error messages */
+    .error-messages {
+        color: red;
+    }
+</style>

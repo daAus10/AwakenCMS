@@ -1,22 +1,65 @@
-<%= form_with(model: role) do |form| %>
-  <% if role.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(role.errors.count, "error") %> prohibited this role from being saved:</h2>
+<div class="role-form-container">
+  <%= form_with(model: role) do |form| %>
+    <% if role.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(role.errors.count, "error") %> prohibited this role from being saved:</h2>
 
-      <ul>
-        <% role.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% role.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save", class: "save-button" %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+<style>
+    /* Style for the container */
+    .role-form-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    /* Style for the input fields */
+    input[type="text"] {
+        display: block;
+        width: 100%;
+        padding: 20px 0;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
+
+    /* Style for the save button */
+    .save-button {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Style for the save button when hovered */
+    .save-button:hover {
+        background-color: #1d941d;
+    }
+
+    /* Style for the error messages */
+    .error-messages {
+        color: red;
+    }
+</style>

@@ -1,41 +1,87 @@
-<%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="product-form-container">
+  <%= form_with(model: product) do |form| %>
+    <% if product.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% product.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :time, style: "display: block" %>
+      <%= form.datetime_field :time %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price, style: "display: block" %>
+      <%= form.text_field :price %>
+    </div>
+
+    <div class="field">
+      <%= form.label :product_category_id, "Product Category", style: "display: block" %>
+      <%= form.collection_select :product_category_id, ProductCategory.all, :id, :title, prompt: "Select a category" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save", class: "save-button" %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+<style>
+    /* Style for the container */
+    .product-form-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
 
-  <div>
-    <%= form.label :time, style: "display: block" %>
-    <%= form.datetime_field :time %>
-  </div>
+    /* Style for the input fields */
+    input[type="text"],
+    textarea,
+    select {
+        display: block;
+        width: 100%;
+        padding: 50px 0;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
+    /* Style for the save button */
+    .save-button {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-  <div class="field">
-    <%= form.label :product_category_id, "Product Category" %>
-    <%= form.collection_select :product_category_id, ProductCategory.all, :id, :title, prompt: "Select a category" %>
-  </div>
+    /* Style for the save button when hovered */
+    .save-button:hover {
+        background-color: #1d941d;
+    }
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    /* Style for the error messages */
+    .error-messages {
+        color: red;
+    }
+</style>

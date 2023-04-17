@@ -1,82 +1,132 @@
-<%= form_with(model: footer_view) do |form| %>
-  <% if footer_view.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(footer_view.errors.count, "error") %> prohibited this footer_view from being saved:</h2>
+<div class="footer-view-container">
+  <%= form_with(model: footer_view) do |form| %>
+    <% if footer_view.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(footer_view.errors.count, "error") %> prohibited this footer_view from being saved:</h2>
 
-      <ul>
-        <% footer_view.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% footer_view.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :brand_name, style: "display: block" %>
+      <%= form.text_field :brand_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :brand_image, style: "display: block" %>
+      <%= form.file_field :brand_image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :group_title, style: "display: block" %>
+      <%= form.text_field :group_title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :social_image_1, style: "display: block" %>
+      <%= form.file_field :social_image_1 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :social_image_2, style: "display: block" %>
+      <%= form.file_field :social_image_2 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :social_image_3, style: "display: block" %>
+      <%= form.file_field :social_image_3 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :monday, style: "display: block" %>
+      <%= form.text_area :monday %>
+    </div>
+
+    <div class="field">
+      <%= form.label :tuesday, style: "display: block" %>
+      <%= form.text_area :tuesday %>
+    </div>
+
+    <div class="field">
+      <%= form.label :wednesday, style: "display: block" %>
+      <%= form.text_area :wednesday %>
+    </div>
+
+    <div class="field">
+      <%= form.label :thursday, style: "display: block" %>
+      <%= form.text_area :thursday %>
+    </div>
+
+    <div class="field">
+      <%= form.label :friday, style: "display: block" %>
+      <%= form.text_area :friday %>
+    </div>
+
+    <div class="field">
+      <%= form.label :saturday, style: "display: block" %>
+      <%= form.text_area :saturday %>
+    </div>
+
+    <div class="field">
+      <%= form.label :sunday, style: "display: block" %>
+      <%= form.text_area :sunday %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :brand_name, style: "display: block" %>
-    <%= form.text_field :brand_name %>
-  </div>
+<style>
+    /* Style for the container */
+    .footer-view-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
 
-  <div>
-    <%= form.label :brand_image, style: "display: block" %>
-    <%= form.file_field :brand_image %>
-  </div>
+    /* Style for the input fields */
+    input[type="text"],
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom:30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
 
-  <div>
-    <%= form.label :group_title, style: "display: block" %>
-    <%= form.text_field :group_title %>
-  </div>
+    /* Style for the file input field */
+    input[type="file"] {
+        display: block;
+        margin-bottom: 10px;
+    }
 
-  <div>
-    <%= form.label :social_image_1, style: "display: block" %>
-    <%= form.file_field :social_image_1 %>
-  </div>
+    /* Style for the submit button */
+    input[type="submit"] {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
 
-  <div>
-    <%= form.label :social_image_2, style: "display: block" %>
-    <%= form.file_field :social_image_2 %>
-  </div>
+    /* Style for the submit button when hovered */
+    input[type="submit"]:hover {
+        background-color: #1d941d;
+    }
 
-  <div>
-    <%= form.label :social_image_3, style: "display: block" %>
-    <%= form.file_field :social_image_3 %>
-  </div>
-
-  <div>
-    <%= form.label :monday, style: "display: block" %>
-    <%= form.text_area :monday %>
-  </div>
-
-  <div>
-    <%= form.label :tuesday, style: "display: block" %>
-    <%= form.text_area :tuesday %>
-  </div>
-
-  <div>
-    <%= form.label :wednesday, style: "display: block" %>
-    <%= form.text_area :wednesday %>
-  </div>
-
-  <div>
-    <%= form.label :thursday, style: "display: block" %>
-    <%= form.text_area :thursday %>
-  </div>
-
-  <div>
-    <%= form.label :friday, style: "display: block" %>
-    <%= form.text_area :friday %>
-  </div>
-
-  <div>
-    <%= form.label :saturday, style: "display: block" %>
-    <%= form.text_area :saturday %>
-  </div>
-
-  <div>
-    <%= form.label :sunday, style: "display: block" %>
-    <%= form.text_area :sunday %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    /* Style for the error messages */
+    .error-messages {
+        color: red;
+    }
+</style>

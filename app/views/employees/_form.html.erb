@@ -1,22 +1,65 @@
-<%= form_with(model: employee) do |form| %>
-  <% if employee.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+<style>
+    /* Style for the container */
+    .employee-form-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
 
-      <ul>
-        <% employee.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    /* Style for the input fields */
+    input[type="text"] {
+        display: block;
+        width: 100%;
+        padding: 50px 0;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
+
+    /* Style for the save button */
+    input[type="submit"] {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Style for the save button when hovered */
+    input[type="submit"]:hover {
+        background-color: #1d941d;
+    }
+
+    /* Style for the error messages */
+    .error-messages {
+        color: red;
+    }
+</style>
+
+<div class="employee-form-container">
+  <%= form_with(model: employee) do |form| %>
+    <% if employee.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+        <ul>
+          <% employee.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

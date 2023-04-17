@@ -1,27 +1,73 @@
-<%= form_with(model: service_view_card) do |form| %>
-  <% if service_view_card.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(service_view_card.errors.count, "error") %> prohibited this service_view_card from being saved:</h2>
+<div class="service-view-card-container">
+  <%= form_with(model: service_view_card) do |form| %>
+    <% if service_view_card.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(service_view_card.errors.count, "error") %> prohibited this service_view_card from being saved:</h2>
 
-      <ul>
-        <% service_view_card.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% service_view_card.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
+</div>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
+<style>
+    /* Style for the form container */
+    .service-view-card-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    /* Style for the input fields */
+    input[type="text"],
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 50px 0;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
+
+    /* Style for the submit button */
+    input[type="submit"] {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Style for the submit button when hovered */
+    input[type="submit"]:hover {
+        background-color: #1d941d;
+    }
+
+    /* Style for the error messages */
+    .error-messages {
+        color: red;
+    }
+
+</style>
