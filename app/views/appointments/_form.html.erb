@@ -1,123 +1,149 @@
-<%= form_with(model: appointment) do |form| %>
+<%#= form_with(model: appointment) do |form| %>
 
-  <% if appointment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+  <%# if appointment.errors.any? %>
+<!--    <div style="color: red">-->
+<!--      <h2><%#= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>-->
 
-      <ul>
-        <% appointment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<!--      <ul>-->
+        <%# appointment.errors.each do |error| %>
+<!--          <li><%#= error.full_message %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
 
-  <%= form.hidden_field :kart_id, value: @kart.id %>
+  <%#= form.hidden_field :kart_id, value: @kart.id %>
 
-  <div class="field">
-    <%= form.label "Select a preferred time for Time " %>
-    <br>
-    <% morning_times = ['9:00am', '10:00am', '11:00am'] %>
-    <% afternoon_times = ['1:00pm', '2:00pm', '3:00pm'] %>
-    <% evening_times = ['4:00pm', '5:00pm', '5:30pm', '6:00pm'] %>
-
-
-    <h3>Morning</h3>
-    <% morning_times.each do |time| %>
-      <% disabled = @taken_time_slots.include?(time) %>
-      <label class="custom-radio <%= 'disabled' if disabled %>" for="time-<%= time %>">
-        <%= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
-        <%= disabled ? 'N/A' : time %>
-      </label>
-      <%#= form.radio_button :time1, time, id: "time1-#{time}", onchange: "disableSelectedTime(this)", disabled: @appointments.include?(time)  %> <%#= time %>
-    <% end %>
-    <h3>Afternon</h3>
-    <% afternoon_times.each do |time| %>
-      <% disabled = @taken_time_slots.include?(time) %>
-      <label class="custom-radio <%= 'disabled' if disabled %>" for="time-<%= time %>">
-        <%= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
-        <%= disabled ? 'N/A' : time %>
-      </label>
-    <% end %>
-    <h3>Evening</h3>
-    <% evening_times.each do |time| %>
-      <% disabled = @taken_time_slots.include?(time) %>
-      <label class="custom-radio <%= 'disabled' if disabled %>" for="time-<%= time %>">
-        <%= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
-        <%= disabled ? 'N/A' : time %>
-      </label>
-    <% end %>
+<!--  <div class="field">-->
+    <%#= form.label "Select a preferred time for Time " %>
+<!--    <br>-->
+    <%# morning_times = ['9:00am', '10:00am', '11:00am'] %>
+    <%# afternoon_times = ['1:00pm', '2:00pm', '3:00pm'] %>
+    <%# evening_times = ['4:00pm', '5:00pm', '5:30pm', '6:00pm'] %>
 
 
-  </div>
-  <h3 class="apt_title">Appointment Form</h3>
-  <div class="input-container">
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+<!--    <h3>Morning</h3>-->
+    <%# morning_times.each do |time| %>
+      <%# disabled = @taken_time_slots.include?(time) %>
+<!--      <label class="custom-radio <%#= 'disabled' if disabled %>" for="time-<%#= time %>">-->
+        <%#= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
+        <%#= disabled ? 'N/A' : time %>
+<!--      </label>-->
+      <%##= form.radio_button :time1, time, id: "time1-#{time}", onchange: "disableSelectedTime(this)", disabled: @appointments.include?(time)  %> <%#= time %>
+    <%# end %>
+<!--    <h3>Afternon</h3>-->
+    <%# afternoon_times.each do |time| %>
+      <%# disabled = @taken_time_slots.include?(time) %>
+<!--      <label class="custom-radio <%#= 'disabled' if disabled %>" for="time-<%#= time %>">-->
+        <%#= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
+        <%#= disabled ? 'N/A' : time %>
+<!--      </label>-->
+    <%# end %>
+<!--    <h3>Evening</h3>-->
+    <%# evening_times.each do |time| %>
+      <%# disabled = @taken_time_slots.include?(time) %>
+<!--      <label class="custom-radio <%#= 'disabled' if disabled %>" for="time-<%#= time %>">-->
+        <%#= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
+        <%#= disabled ? 'N/A' : time %>
+<!--      </label>-->
+    <%# end %>
+<!--  </div>-->
 
-  <div class="input-container">
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
-  </div>
+<!--  <div class="form-container">-->
+<!--  <h3 class="apt_title">Appointment Form</h3>-->
+<!--  <div class="input-container">-->
+    <%#= form.label :name, style: "display: block" %>
+    <%#= form.text_field :name %>
+<!--  </div>-->
 
-  <div class="input-container">
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
-  </div>
+<!--  <div class="input-container">-->
+    <%#= form.label :phone, style: "display: block" %>
+    <%#= form.text_field :phone %>
+<!--  </div>-->
 
-  <div class="input-container">
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+<!--  <div class="input-container">-->
+    <%#= form.label :date, style: "display: block" %>
+    <%#= form.date_field :date %>
+<!--  </div>-->
 
-  <div class="input-container">
-    <%= form.label :special_needs, style: "display: block" %>
-    <%= form.text_area :special_needs %>
-  </div>
-</table>
+<!--  <div class="input-container">-->
+    <%#= form.label :email, style: "display: block" %>
+    <%#= form.text_field :email %>
+<!--  </div>-->
 
-  <h3>Services Details:</h3>
-  <table>
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Total</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @appointment.orderables.each do |orderable| %>
-      <% product = orderable.product %>
-      <tr>
-        <td><h2></h2><%= product.name %></td>
+<!--  <div class="input-container">-->
+    <%#= form.label :special_needs, style: "display: block" %>
+    <%#= form.text_area :special_needs %>
+<!--  </div>-->
+<!--</table>-->
+
+
+<!--  <h3>Services Details:</h3>-->
+
+    <%# @appointment.orderables.each do |orderable| %>
+      <%# product = orderable.product %>
+<!--      <tr>-->
+<!--        <h2><%#= product.name %></h2>-->
 <!--        <td><%#= orderable.quantity %></td>-->
-        <td><%= product.price %></td>
-<!--        <td><%#= orderable.total %></td>-->
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+<!--        <p><%#= product.price %></p>-->
+<!--        <p><%#= orderable.total %></p>-->
+<!--        <p><%#= orderable.description %></p>-->
+<!--        <p><%#= orderable.total %></p>-->
+<!--      </tr>-->
+    <%# end %>
+
+<!--  <div class="field">-->
+    <%#= form.check_box :terms_accepted, id: "terms_accepted", onchange: "toggleSubmitButton(this)" %>
+    <%#= form.label :terms_accepted, "Before submitting, you agree to the" %>
+    <%#= link_to "Terms and Conditions", "https://example.com/terms_and_conditions", target: "_blank", rel: "noopener noreferrer" %>
+<!--  </div>-->
 
 
-
-  <div class="field">
-    <%= form.check_box :terms_accepted, id: "terms_accepted", onchange: "toggleSubmitButton(this)" %>
-    <%= form.label :terms_accepted, "Before submitting, you agree to the" %>
-    <%= link_to "Terms and Conditions", "https://example.com/terms_and_conditions", target: "_blank", rel: "noopener noreferrer" %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit "Submit", disabled: true %>
-  </div>
-<% end %>
-</table>
+<!--  <div class="actions">-->
+    <%#= form.submit "Submit", disabled: true %>
+<!--  </div>-->
+<%# end %>
+<!--</div>-->
+<!--</table>-->
 
 
 <style>
-  .appt_form {
+    .form-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    input[type="text"],
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
+
+    .save-button {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .save-button:hover {
+        background-color: #1d941d;
+    }
+
+    .error-messages {
+        color: red;
+    }
+
+    .appt_form {
       border-color: #2E2F30;
   }
 
@@ -189,3 +215,184 @@
 
 
 </script>
+
+
+<%= form_with(model: appointment) do |form| %>
+  <% if appointment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <ul>
+        <% appointment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :kart_id, value: @kart.id %>
+
+  <div class="appointment-container">
+    <div class="times-container">
+      <%= form.label "Select a preferred time for Time " %>
+      <br>
+      <% morning_times = ['9:00am','9:30am','10:00am', '10:30am', '11:00am', '11:30am',] %>
+      <% afternoon_times = ['1:00pm','1:30pm', '2:00pm','2:30pm','3:00pm', '3:30pm'] %>
+      <% evening_times = ['4:00pm', '5:00pm', '5:30pm', '6:00pm'] %>
+
+      <h3>Morning</h3>
+      <% morning_times.each do |time| %>
+        <% disabled = @taken_time_slots.include?(time) %>
+        <label class="custom-radio <%= 'disabled' if disabled %>" for="time-<%= time %>">
+          <%= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
+          <%= disabled ? 'N/A' : time %>
+        </label>
+      <% end %>
+      <h3>Afternoon</h3>
+      <% afternoon_times.each do |time| %>
+        <% disabled = @taken_time_slots.include?(time) %>
+        <label class="custom-radio <%= 'disabled' if disabled %>" for="time-<%= time %>">
+          <%= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
+          <%= disabled ? 'N/A' : time %>
+        </label>
+      <% end %>
+      <h3>Evening</h3>
+      <% evening_times.each do |time| %>
+        <% disabled = @taken_time_slots.include?(time) %>
+        <label class="custom-radio <%= 'disabled' if disabled %>" for="time-<%= time %>">
+          <%= form.radio_button :time, time, id: "time-#{time}", onchange: "disableSelectedTime(this); toggleSubmitButton()", disabled: disabled, style: "display: none;" %>
+          <%= disabled ? 'N/A' : time %>
+        </label>
+      <% end %>
+    </div>
+
+
+
+  </div>
+  <div class="form-container">
+    <h3 class="apt_title">Appointment Form</h3>
+    <div class="input-container">
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="input-container">
+      <%= form.label :phone, style: "display: block" %>
+      <%= form.text_field :phone %>
+    </div>
+
+    <div class="input-container">
+      <%= form.label :date, style: "display: block" %>
+      <%= form.date_field :date %>
+    </div>
+
+    <div class="input-container">
+      <%= form.label :email, style: "display: block" %>
+      <%= form.text_field :email %>
+    </div>
+
+    <div class="input-container">
+      <%= form.label :special_needs, style: "display: block" %>
+      <%= form.text_area :special_needs %>
+    </div>
+
+    <div class="field">
+      <%= form.check_box :terms_accepted, id: "terms_accepted", onchange: "toggleSubmitButton(this)" %>
+      <%= form.label :terms_accepted, "Before submitting, you agree to the" %>
+      <%= link_to "Terms and Conditions", "https://example.com/terms_and_conditions", target: "_blank", rel: "noopener noreferrer" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Submit", disabled: true %>
+    </div>
+  </div>
+<% end %>
+<style>
+    .appointment-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    .times-container {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .kart-container {
+        flex: 1;
+    }
+    .form-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    input[type="text"],
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 16px;
+    }
+
+    .save-button {
+        display: block;
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .save-button:hover {
+        background-color: #1d941d;
+    }
+
+    .error-messages {
+        color: red;
+    }
+
+    .appt_form {
+        border-color: #2E2F30;
+    }
+
+    .apt_title { align-self: center}
+    /* Custom radio button styles */
+    .input-container {
+        display: table;
+        width: 45%; /* Optional: Set a width to adjust the spacing between elements */
+        margin-right: 5%; /* Optional: Add some margin to the right of each element */
+    }
+
+    .custom-radio {
+        display: inline-block;
+        background-color: black;
+        color: white;
+        font-weight: bolder;
+        padding: 13px 16px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        border-radius: 0px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .custom-radio.disabled {
+        background-color: gray;
+        cursor: not-allowed;
+    }
+
+    .custom-radio.selected {
+        background-color: #2b800f;
+    }
+    .form-container {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+
+</style>

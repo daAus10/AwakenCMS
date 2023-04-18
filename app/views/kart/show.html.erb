@@ -1,23 +1,115 @@
+<!--<turbo-frame id="cart">-->
+  <%#= render partial: 'kart/kart', locals: { kart: @kart } %>
+  <%#= render 'appointments/form', appointment: @appointment %>
+
+<!--  <div class="selected-items-container">-->
+<!--  <h1>Selected Items</h1>-->
+
+<%# if @kart.orderables.count > 0 %>
+  <%# @kart.orderables.each do |orderable| %>
+    <%# product = orderable.product %>
+<!--    <div id="cart_item_<%#= orderable.id %>">-->
+<!--      <p><%#= product.name %></p>-->
+
+      <%#= button_to "Remove", kart_remove_path(orderable.id), method: :delete, remote: true %>
+<!--    </div>-->
+  <%# end %>
+<!--  <p>Your total is $<%#= @kart.total %></p>-->
+<%# else %>
+<!--  <p>Your cart is empty </p>-->
+<%# end %>
+
+  <%#= render partial: 'appointments/form', locals: { appointment: @appointment } %>
+
+
+<!--</turbo-frame>-->
 <turbo-frame id="cart">
   <%= render partial: 'kart/kart', locals: { kart: @kart } %>
-  <%#= render 'appointments/form', appointment: @appointment %>
+
+
+  <div class="selected-items-container">
+    <h1>Selected Items</h1>
+
+    <% if @kart.orderables.count > 0 %>
+      <% @kart.orderables.each do |orderable| %>
+        <% product = orderable.product %>
+        <div id="cart_item_<%= orderable.id %>" class="cart-item">
+          <div class="product-info">
+            <p><%= product.name %></p>
+            <p><%= product.price %></p>
+            <p><%= product.description %></p>
+          </div>
+
+          <%= button_to "Remove", kart_remove_path(orderable.id), method: :delete, remote: true, class: "remove-button" %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Your cart is empty</p>
+    <% end %>
+  </div>
   <%= render partial: 'appointments/form', locals: { appointment: @appointment } %>
 
-
-  <h1>Your Kart</h1>
-
-<% if @kart.orderables.count > 0 %>
-  <% @kart.orderables.each do |orderable| %>
-    <% product = orderable.product %>
-    <div id="cart_item_<%= orderable.id %>">
-      <p><%= product.name %></p>
-
-      <%= button_to "Remove", kart_remove_path(orderable.id), method: :delete, remote: true %>
-    </div>
-  <% end %>
-<!--  <p>Your total is $<%#= @kart.total %></p>-->
-<% else %>
-  <p>Your cart is empty </p>
-<% end %>
-
 </turbo-frame>
+
+<style>
+    /* Style for the container */
+    .selected-items-container {
+        max-width: 550px;
+        margin: 0 auto;
+        padding: 30px;
+        border: 2px solid black;
+    }
+
+    /* Style for the remove button */
+    .remove-button {
+        display: inline-block;
+        padding: 5px 10px;
+        border: none;
+        background-color: red;
+        color: white;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    /* Style for the remove button when hovered */
+    .remove-button:hover {
+        background-color: #b30000;
+    }
+
+    /* Style for the list of items */
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    /* Style for the product info */
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        border-bottom: 1px solid black;
+        padding: 30px;
+    }
+
+    /* Style for the product name */
+    .product-info p:first-child {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* Style for the product price */
+    .product-info p:nth-child(2) {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    /* Style for the product description */
+    .product-info p:last-child {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+</style>
