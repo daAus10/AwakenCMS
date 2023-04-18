@@ -1,7 +1,9 @@
 # AwakenCMS (Custom Content Management System)
 * Project Description
 This project is a website for Awaken Skin Studio, a spa that is dedicated to providing clients with a relaxing environment, safe and effective treatments, and friendly service from experienced technicians and specialists. The website will allow clients to book appointments, consent to digital consent forms, and access information about the spa's services and specials. The website will also allow the spa's staff to easily update and manage the website's content.
+[erd.pdf](https://github.com/BobolaObi/AwakenCMS/files/11257536/erd.pdf)
 
+<img width="1493" alt="ERD Diagram" src="https://user-images.githubusercontent.com/91813831/232661208-4045a5d4-fd22-4b38-b850-4bb98e994a25.png">
 
 * Getting Started Guide
     1. Clone the repository to your local machine using git clone https://github.com/[username]/AwakenCMS.git
