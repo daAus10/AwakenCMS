@@ -2,20 +2,25 @@
 
 <br>
 <br>
-<h1>Gallery image posts</h1>
+<div id="flex">
+  <p style="color: green"><%= notice %></p>
+  <%= render 'layouts/navbar' %>
 
-<div class="gallery-image-posts-container">
-  <% @gallery_image_posts.each do |gallery_image_post| %>
-    <div class="gallery-image-post">
-      <%= render gallery_image_post %>
-      <p>
-        <%= link_to "view", gallery_image_post, class: "gallery-image-post-button" %>
-      </p>
+  <div id="right">
+    <h1>Gallery image posts</h1>
+    <div class="gallery-image-posts-container">
+      <% @gallery_image_posts.each do |gallery_image_post| %>
+        <div class="gallery-image-post">
+          <%= render gallery_image_post %>
+          <p>
+            <%= link_to "view", gallery_image_post, class: "gallery-image-post-button" %>
+          </p>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+    <%= link_to "New gallery image post", new_gallery_image_post_path %>
+  </div>
 </div>
-
-<%= link_to "New gallery image post", new_gallery_image_post_path %>
 
 <style>
     .gallery-image-posts-container {

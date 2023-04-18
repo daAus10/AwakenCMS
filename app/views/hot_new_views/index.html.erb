@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<div id="flex">
+  <p style="color: green"><%= notice %></p>
+  <%= render 'layouts/navbar' %>
 
-<h1>Hot new views</h1>
-
-<div id="hot_new_views">
-  <% @hot_new_views.each do |hot_new_view| %>
-    <%= render hot_new_view %>
-    <p>
-      <%= link_to "Show this hot new view", hot_new_view %>
-    </p>
-  <% end %>
-</div>
-
+  <div id="right">
+    <h1>Hot new views</h1>
+    <div id="hot_new_views">
+      <% @hot_new_views.each do |hot_new_view| %>
+        <%= render hot_new_view %>
+        <p>
+          <%= link_to "Show this hot new view", hot_new_view %>
+        </p>
+      <% end %>
+    </div>
 <%= link_to "New hot new view", new_hot_new_view_path %>
+  </div>
+</div>

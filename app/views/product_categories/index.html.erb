@@ -1,19 +1,24 @@
 <p style="color: green"><%= notice %></p>
+<div id="flex">
+  <p style="color: green"><%= notice %></p>
+  <%= render 'layouts/navbar' %>
 
-<h1>Product categories</h1>
-
-<div id="product_categories" class="flex-container">
-  <% @product_categories.each do |product_category| %>
-    <div class="product-category-item">
-      <%= render product_category %>
-      <p>
-        <%= link_to "Show this product category", product_category %>
-      </p>
+  <div id="right">
+    <h1>Product categories</h1>
+    <div id="product_categories" class="flex-container">
+      <% @product_categories.each do |product_category| %>
+        <div class="product-category-item">
+          <%= render product_category %>
+          <p>
+            <%= link_to "Show this product category", product_category %>
+          </p>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+    <%= link_to "New product category", new_product_category_path %>
+  </div>
 </div>
 
-<%= link_to "New product category", new_product_category_path %>
 
 <!-- Add the CSS style for flex-container -->
 <style>

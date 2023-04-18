@@ -16,25 +16,30 @@
 
 <p style="color: green"><%= notice %></p>
 
-<h1>Contacts</h1>
+<div id="flex">
+  <p style="color: green"><%= notice %></p>
+  <%= render 'layouts/navbar' %>
 
-<div class="contact-container">
-  <% @contacts.each do |contact| %>
-    <div class="contact-container-2">
-      <div id="canvas">
-        <span class="material-symbols-outlined">
-          <%= render contact %>
-        </span>
-        <p id="contact-p">
-          <%= link_to "Show this contact", contact %>
-        </p>
-      </div>
+  <div id="right">
+    <h1>Contacts</h1>
+    <div class="contact-container">
+      <% @contacts.each do |contact| %>
+        <div class="contact-container-2">
+          <div id="canvas">
+            <span class="material-symbols-outlined">
+              <%= render contact %>
+            </span>
+            <p id="contact-p">
+              <%= link_to "Show this contact", contact %>
+            </p>
+          </div>
+        </div>
+      <% end %>
     </div>
-
-  <% end %>
+    <%= link_to "New contact", new_contact_path %>
+  </div>
 </div>
 
-<%= link_to "New contact", new_contact_path %>
 
 <style>
     #canvas {

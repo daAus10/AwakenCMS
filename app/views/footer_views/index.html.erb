@@ -1,36 +1,11 @@
 <p style="color: green"><%= notice %></p>
-<style>
-    .table {
-        display: table;
-        width: 100%;
-        table-layout: auto;
-        border-collapse: collapse;
-    }
 
-    .table-cell {
-        display: compact;
-        vertical-align: top;
-        width: 60%;
-        padding: 20px 120px 120px 340px;
-    }
-    .nav_bar {
-        display: compact;
-        vertical-align: top;
-        width: 20%;
-        padding: 10px;
-    }
-
-    .nav_bar {
-        width: 10%;
-    }
-</style>
-
-<div class="table">
-  <h1 class="table-cell">Footer views</h1>
-  <div class="nav_bar">
+<div>
+  <h1>Footer views</h1>
+  <div>
     <%= render 'layouts/navbar' %>
   </div>
-  <div class="table-cell">
+  <div>
     <div id="footer_views">
       <% @footer_views.each do |footer_view| %>
         <%= render footer_view %>

@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<div id="flex">
+  <p style="color: green"><%= notice %></p>
+  <%= render 'layouts/navbar' %>
 
-<h1>Employee roles</h1>
-
-<div id="employee_roles">
-  <% @employee_roles.each do |employee_role| %>
-    <%= render employee_role %>
-    <p>
-      <%= link_to "Show this employee role", employee_role %>
-    </p>
-  <% end %>
+  <div id="right">
+    <h1>Employee roles</h1>
+    <div id="employee_roles">
+      <% @employee_roles.each do |employee_role| %>
+        <%= render employee_role %>
+        <p>
+          <%= link_to "Show this employee role", employee_role %>
+        </p>
+      <% end %>
+    </div>
+    <%= link_to "New employee role", new_employee_role_path %>
+  </div>
 </div>
-
-<%= link_to "New employee role", new_employee_role_path %>

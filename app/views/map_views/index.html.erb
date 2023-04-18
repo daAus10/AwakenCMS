@@ -61,23 +61,31 @@
     }
 </style>
 
-<div id="map-views-container">
-  <p style="color: green; text-align: center;"><%= notice %></p>
+<div id="flex">
+  <p style="color: green"><%= notice %></p>
+  <%= render 'layouts/navbar' %>
 
-  <h1>Map views</h1>
+  <div id="right">
+    <div id="map-views-container">
+      <p style="color: green; text-align: center;"><%= notice %></p>
 
-  <div id="map_views">
-    <% @map_views.each do |map_view| %>
-      <div class="map-view">
-        <%= render map_view %>
-        <p class="show-link">
-          <%= link_to "Show this map view", map_view %>
-        </p>
+      <h1>Map views</h1>
+
+      <div id="map_views">
+        <% @map_views.each do |map_view| %>
+          <div class="map-view">
+            <%= render map_view %>
+            <p class="show-link">
+              <%= link_to "Show this map view", map_view %>
+            </p>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
 
-  <p class="new-link">
-    <%= link_to "New map view", new_map_view_path %>
-  </p>
+      <p class="new-link">
+        <%= link_to "New map view", new_map_view_path %>
+      </p>
+    </div>
+  </div>
 </div>
+
