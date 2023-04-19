@@ -29,6 +29,7 @@
 
   <div class="selected-items-container">
     <h1>Selected Items</h1>
+    <hr style="border: 1px solid black; min-width: 230px; overflow: hidden; max-width: 300px">
 
     <% if @kart.orderables.count > 0 %>
       <% @kart.orderables.each do |orderable| %>
@@ -52,12 +53,25 @@
 </turbo-frame>
 
 <style>
-    /* Style for the container */
+
     .selected-items-container {
-        max-width: 550px;
-        margin: 0 auto;
-        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        z-index: 1;
+        background-color: #f8f8f8;
+        max-width: 650px;
         border: 2px solid black;
+        padding: 40px;
+        margin-top: 40px;
+        margin-right: 30px;
+        margin-left: 750px;
+        max-height: 260px; /* Adjust the max height value according to your needs */
+        overflow-y: auto; /* Add a vertical scrollbar when the content overflows */
+    }
+    .selected-items-container h1{
+        font-weight: bolder;
     }
 
     /* Style for the remove button */
@@ -89,9 +103,8 @@
     .product-info {
         display: flex;
         flex-direction: column;
-        margin-right: 20px;
         border-bottom: 1px solid black;
-        padding: 30px;
+        padding: 12px;
     }
 
     /* Style for the product name */
@@ -111,5 +124,41 @@
     .product-info p:last-child {
         font-size: 14px;
         margin-bottom: 10px;
+    }
+
+    /* Large screens (laptops, desktops) */
+    @media (min-width: 1024px) {
+
+
+    }
+
+    /* Medium screens (tablets) */
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .selected-items-container {
+            width: auto;
+            margin: 32px 20px;
+            position: relative;
+            padding: 15px;
+        }
+        .selected-items-container h1{
+            font-size: 30px;
+        }
+
+    }
+
+    /* Small screens (mobile phones) */
+    @media (max-width: 767px) {
+        .selected-items-container {
+            width: auto;
+            margin: 32px 20px;
+            position: relative;
+            padding: 15px;
+        }
+        .selected-items-container h1{
+            font-size: 30px;
+        }
+
+
+
     }
 </style>
