@@ -4,6 +4,7 @@ default: &default
   encoding: unicode         # Set the character encoding to Unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>  # Set the max number of connections in the pool
   timeout: 5000             # Set the timeout for database connections
+  url: <%= ENV['DATABASE_URL'] %> # Use the DATABASE_URL environment variable for database connections
 
 # Development environment settings
 development:
