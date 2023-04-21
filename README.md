@@ -68,6 +68,70 @@ bundle install
 
     ```
 
+# Linux Installation, follow these steps:
+
+1. Update package lists
+    ```
+    sudo apt-get update
+    ```
+
+2. Install RVM dependencies
+    ```
+    sudo apt-get install curl gpg software-properties-common
+    sudo apt-get install nodejs
+    ```
+
+3. Install RVM
+    ```
+    curl -sSL https://get.rvm.io | bash -s stable
+    ```
+
+4. Source RVM
+    ```
+    source ~/.rvm/scripts/rvm
+    ```
+
+5. Install Ruby 3.0.0
+    ```
+    rvm install 3.0.0
+    ```
+
+6. Set default Ruby version
+    ```
+    rvm use 3.0.0 --default
+    ```
+
+7. Install Bundler
+    ```
+    gem install bundler
+    ```
+
+8. Clone your Ruby app (awakencms)
+    ```
+    git clone <YOUR_REPO_URL>
+    ```
+
+9. Change to the app directory
+    ```
+    cd awakencms
+    ```
+
+10. Install dependencies
+    ```
+    bundle install
+    ```
+
+11. Set up the database (if necessary)
+    ```
+    rake db:create
+    rake db:migrate
+    ```
+
+12. Start the Rails server
+    ```
+    rails server
+    ```
+
 
 Your application should now be running at [http://127.0.0.1:3000](http://127.0.0.1:3000).
 
