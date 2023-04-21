@@ -1,0 +1,6 @@
+.git
+.gitignore
+.dockerignore
+tmp
+log
+public/assets
