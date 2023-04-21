@@ -1,25 +1,25 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem "sqlite3"
-#
+# Default settings shared by all environments
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  adapter: postgresql       # Use PostgreSQL as the database adapter
+  encoding: unicode         # Set the character encoding to Unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>  # Set the max number of connections in the pool
+  timeout: 5000             # Set the timeout for database connections
 
+# Development environment settings
 development:
-  <<: *default
-  database: db/development.sqlite3
+  <<: *default              # Inherit settings from the "default" block
+  database: awakencms_development  # Name of the development database
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+# Test environment settings
 test:
-  <<: *default
-  database: db/test.sqlite3
+  <<: *default              # Inherit settings from the "default" block
+  database: awakencms_test   # Name of the test database
 
+# Production environment settings
 production:
-  <<: *default
-  database: db/production.sqlite3
+  <<: *default              # Inherit settings from the "default" block
+  database: your_app_name_production  # Name of the production database
+  username: <%= ENV['DB_USERNAME'] %> # Use an environment variable for the database username
+  password: <%= ENV['DB_PASSWORD'] %> # Use an environment variable for the database password
+  host: <%= ENV['DB_HOST'] %>         # Use an environment variable for the database host
+  port: <%= ENV['DB_PORT'] %>         # Use an environment variable for the database port
