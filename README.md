@@ -4,7 +4,8 @@
 ## Description
 This project is a website for Awaken Skin Studio, a spa dedicated to providing clients with a relaxing environment, safe and effective treatments, and friendly service from experienced technicians and specialists. The website serves as a web-based appointment booking system designed for a skincare and spa studio, allowing clients to view available services, book appointments, consent to digital consent forms, and access information about the spa's services and specials. The system also provides functionalities for receptionists to assign appoinments to certain employees. Each employee knows their roles(assigned and created on the site) and can see how much work the have for the day! The manager can update the website content, services, and employee information, ensuring a seamless and user-friendly experience for both clients and staff.
 
-
+## Visit: 
+https://awakenspa.up.railway.app/
 
 ## Prerequisites for Running a Ruby on Rails Application
 
